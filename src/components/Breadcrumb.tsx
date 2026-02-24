@@ -1,0 +1,96 @@
+"use client";
+import { usePathname } from "next/navigation";
+
+const ROUTE_LABELS: Record<string, string> = {
+  "": "首頁",
+  "elementary": "初級英檢",
+  "intermediate": "中級英檢",
+  "upper-intermediate": "中高級英檢",
+  "game": "遊戲練習",
+  "mock-test": "模擬測驗",
+  "speaking": "口說練習",
+  "writing": "寫作練習",
+  "unit": "單元",
+  "about": "關於我們",
+  "how-to-use": "使用說明",
+  "faq": "常見問題",
+  "login": "登入",
+  "dashboard": "學習紀錄",
+  "gept": "全民英檢",
+};
+
+interface BreadcrumbItem {
+  label: string;
+  href: string;
+}
+
+function buildCrumbs(pathname: string): BreadcrumbItem[] {
+  if (pathname === "/") return [];
+
+  const segments = pathname.split("/").filter(Boolean);
+  const crumbs: BreadcrumbItem[] = [];
+
+  for (let i = 0; i < segments.length; i++) {
+    const seg = segments[i];
+    const href = "/" + segments.slice(0, i + 1).join("/");
+
+    // Unit detail pages: show "Unit X"
+    if (segments[i - 1] === "unit" && /^\d+$/.test(seg)) {
+      crumbs.push({ label: `Unit ${seg}`, href });
+    } else if (seg === "unit") {
+      // Skip the "unit" segment itself — we show "Unit X" instead
+      continue;
+    } else {
+      crumbs.push({ label: ROUTE_LABELS[seg] || seg, href });
+    }
+  }
+
+  return crumbs;
+}
+
+export default function Breadcrumb() {
+  const pathname = usePathname();
+  const crumbs = buildCrumbs(pathname);
+
+  if (crumbs.length === 0) return null;
+
+  const SITE_URL = "https://learn.chparenting.com";
+
+  // BreadcrumbList JSON-LD
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "首頁", item: SITE_URL },
+      ...crumbs.map((c, i) => ({
+        "@type": "ListItem",
+        position: i + 2,
+        name: c.label,
+        item: `${SITE_URL}${c.href}`,
+      })),
+    ],
+  };
+
+  return (
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <nav aria-label="breadcrumb" className="max-w-6xl mx-auto px-4 py-3">
+        <ol className="flex items-center gap-1 text-sm text-slate-400 flex-wrap">
+          <li>
+            <a href="/" className="hover:text-blue-600 transition no-underline">首頁</a>
+          </li>
+          {crumbs.map((c, i) => (
+            <li key={c.href} className="flex items-center gap-1">
+              <span className="text-slate-300">/</span>
+              {i === crumbs.length - 1 ? (
+                <span className="text-slate-600 font-medium">{c.label}</span>
+              ) : (
+                <a href={c.href} className="hover:text-blue-600 transition no-underline">{c.label}</a>
+              )}
+            </li>
+          ))}
+        </ol>
+      </nav>
+    </>
+  );
+}

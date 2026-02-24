@@ -1,0 +1,78 @@
+"use client";
+import { usePathname } from "next/navigation";
+import { useState } from "react";
+import MobileHeaderBadge from "./MobileHeaderBadge";
+import HeaderAuthButton from "./HeaderAuthButton";
+
+const GEPT_LEVELS = [
+  { label: "初級", href: "/elementary" },
+  { label: "中級", href: "/intermediate" },
+  { label: "中高級", href: "/upper-intermediate" },
+];
+
+export default function Header() {
+  const pathname = usePathname();
+  const [geptOpen, setGeptOpen] = useState(false);
+
+  return (
+    <header className="bg-white border-b border-slate-200 sticky top-0 z-50">
+      <div className="max-w-6xl mx-auto px-4 h-14 flex items-center justify-between">
+        {/* Brand */}
+        <a href="/" className="flex items-center gap-2 no-underline shrink-0">
+          <span className="text-2xl">📚</span>
+          <span className="text-lg font-bold text-blue-600 hidden sm:inline">親子多元學習平台</span>
+          <span className="text-lg font-bold text-blue-600 sm:hidden">親子學習</span>
+        </a>
+
+        {/* Desktop nav */}
+        <nav className="hidden md:flex items-center gap-1 text-sm">
+          {/* GEPT dropdown */}
+          <div className="relative"
+            onMouseEnter={() => setGeptOpen(true)}
+            onMouseLeave={() => setGeptOpen(false)}
+          >
+            <button
+              className={`px-3 py-2 rounded-lg font-medium transition flex items-center gap-1 bg-transparent border-0 cursor-pointer ${
+                pathname.startsWith("/elementary") || pathname.startsWith("/intermediate") || pathname.startsWith("/upper-intermediate")
+                  ? "text-blue-600 bg-blue-50"
+                  : "text-slate-600 hover:bg-blue-50 hover:text-blue-600"
+              }`}
+            >
+              全民英檢 <span className="text-xs">▾</span>
+            </button>
+            {geptOpen && (
+              <div className="absolute left-0 top-full bg-white border border-slate-200 rounded-xl shadow-lg z-50 overflow-hidden min-w-[120px]">
+                {GEPT_LEVELS.map(l => (
+                  <a key={l.href} href={l.href}
+                    className={`block px-4 py-2.5 text-sm font-medium no-underline transition ${
+                      pathname.startsWith(l.href) ? "text-blue-600 bg-blue-50" : "text-slate-600 hover:bg-slate-50"
+                    }`}>
+                    {l.label}
+                  </a>
+                ))}
+              </div>
+            )}
+          </div>
+
+          <a href="/how-to-use" className={`px-3 py-2 rounded-lg font-medium transition no-underline ${
+            pathname === "/how-to-use" ? "text-blue-600 bg-blue-50" : "text-slate-600 hover:bg-blue-50 hover:text-blue-600"
+          }`}>使用說明</a>
+          <a href="/faq" className={`px-3 py-2 rounded-lg font-medium transition no-underline ${
+            pathname === "/faq" ? "text-blue-600 bg-blue-50" : "text-slate-600 hover:bg-blue-50 hover:text-blue-600"
+          }`}>常見問題</a>
+          <a href="/about" className={`px-3 py-2 rounded-lg font-medium transition no-underline ${
+            pathname === "/about" ? "text-blue-600 bg-blue-50" : "text-slate-600 hover:bg-blue-50 hover:text-blue-600"
+          }`}>關於</a>
+
+          {/* Auth button */}
+          <div className="ml-2">
+            <HeaderAuthButton />
+          </div>
+        </nav>
+
+        {/* Mobile: dynamic badge */}
+        <MobileHeaderBadge />
+      </div>
+    </header>
+  );
+}

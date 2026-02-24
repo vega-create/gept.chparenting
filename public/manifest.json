@@ -1,8 +1,8 @@
 {
-  "name": "GEPT Learn 全民英檢學習平台",
-  "short_name": "GEPT Learn",
-  "description": "免費全民英檢線上學習：電子書 + 遊戲 + 測驗",
-  "start_url": "/elementary",
+  "name": "親子多元學習平台",
+  "short_name": "親子學習",
+  "description": "免費親子多元學習平台：全民英檢・日文・數學・教育桌遊",
+  "start_url": "/",
   "display": "standalone",
   "background_color": "#faf8f4",
   "theme_color": "#2563eb",

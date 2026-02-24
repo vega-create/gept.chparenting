@@ -1,71 +1,86 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "關於我們 | GEPT 全民英檢免費學習平台",
-  description: "GEPT Learn 是由智慧媽咪國際有限公司（Mommy Wisdom International LTD.）製作的免費英檢學習平台，希望讓孩子開心練英文。",
+  title: "關於我們 | 親子多元學習平台",
+  description: "親子多元學習平台由智慧媽咪國際有限公司製作，提供全民英檢、日文、數學等免費學習工具，減輕家長負擔，讓孩子快樂學習。",
+  alternates: { canonical: "https://learn.chparenting.com/about" },
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  name: "關於親子多元學習平台",
+  url: "https://learn.chparenting.com/about",
+  mainEntity: {
+    "@type": "Organization",
+    name: "智慧媽咪國際有限公司 Mommy Wisdom International LTD.",
+    url: "https://chparenting.com",
+    description: "專注於數位行銷與教育科技，打造免費親子學習平台。",
+  },
 };
 
 export default function AboutPage() {
   return (
     <div className="max-w-3xl mx-auto px-4 py-12">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+
       <div className="text-center mb-10">
         <div className="text-5xl mb-3">💡</div>
         <h1 className="text-3xl font-black text-slate-800 mb-2">關於我們</h1>
-        <p className="text-slate-500">一個媽媽想讓孩子快樂學英文的小小計畫</p>
+        <p className="text-slate-500">減輕家長負擔，讓孩子快樂學習</p>
       </div>
 
+      {/* Platform Vision */}
       <div className="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm mb-6">
-        <h2 className="text-xl font-bold text-slate-800 mb-4">📘 為什麼做 GEPT Learn？</h2>
+        <h2 className="text-xl font-bold text-slate-800 mb-4">🌟 平台願景</h2>
         <p className="text-slate-600 leading-7 mb-4">
-          身為兩個孩子的媽媽，我一直在想：有沒有辦法讓孩子準備英檢的時候，
-          不只是背單字、寫考卷，而是能用更輕鬆有趣的方式來練習？
+          <strong>親子多元學習平台</strong>是一個完全免費的線上學習資源平台，
+          讓家長不需要花補習費，也能在家陪孩子有效學習。
         </p>
         <p className="text-slate-600 leading-7 mb-4">
-          於是我決定自己動手做！運用數位行銷和網站開發的專長，打造了這個<strong>完全免費</strong>的英檢學習平台。
-          這裡有單字卡、聽力跟讀、閱讀練習、小遊戲和模擬測驗，
-          希望讓孩子可以隨時隨地、用自己的節奏來練習英文。
+          我們相信：好的學習工具不應該只有付得起補習費的家庭才能享有。
+          透過互動式的遊戲化學習，每個孩子都能用自己的節奏快樂成長。
         </p>
         <p className="text-slate-600 leading-7">
-          老實說，這個平台還在持續進化中 🚀 
-          如果你有任何「要是能加這個功能就好了！」的想法，非常歡迎告訴我們，
-          我們會一步步把它做得更好、更好玩！
+          目前已上線<strong>全民英檢</strong>學習工具（初級・中級・中高級），
+          日文、數學、教育桌遊等更多學習工具正在開發中 🚀
         </p>
       </div>
 
+      {/* Current Tools */}
       <div className="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm mb-6">
-        <h2 className="text-xl font-bold text-slate-800 mb-4">✨ 平台特色</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <div className="p-4 rounded-xl bg-blue-50 border border-blue-100">
-            <div className="text-2xl mb-2">📖</div>
-            <div className="font-bold text-slate-800 mb-1">初級 20 + 中級 34 + 中高級 40 單元</div>
-            <div className="text-sm text-slate-500">超過 8,000 個單字，涵蓋英檢初級到中高級範圍</div>
-          </div>
-          <div className="p-4 rounded-xl bg-purple-50 border border-purple-100">
-            <div className="text-2xl mb-2">🎧</div>
-            <div className="font-bold text-slate-800 mb-1">聽力 + 跟讀練習</div>
-            <div className="text-sm text-slate-500">可調速度、無限重複，練到聽懂為止</div>
-          </div>
-          <div className="p-4 rounded-xl bg-emerald-50 border border-emerald-100">
-            <div className="text-2xl mb-2">🎮</div>
-            <div className="font-bold text-slate-800 mb-1">7 種學習小遊戲</div>
-            <div className="text-sm text-slate-500">單字配對、拼字、聽寫…邊玩邊記</div>
-          </div>
-          <div className="p-4 rounded-xl bg-amber-50 border border-amber-100">
-            <div className="text-2xl mb-2">📝</div>
-            <div className="font-bold text-slate-800 mb-1">全英文模擬測驗</div>
-            <div className="text-sm text-slate-500">比照正式英檢格式，考完才看答案</div>
-          </div>
+        <h2 className="text-xl font-bold text-slate-800 mb-4">🛠️ 目前提供的工具</h2>
+        <div className="space-y-3">
+          <a href="/elementary" className="flex items-center gap-4 p-4 rounded-xl bg-blue-50 border border-blue-100 hover:shadow-md transition no-underline">
+            <span className="text-3xl">📘</span>
+            <div>
+              <div className="font-bold text-slate-800">全民英檢 GEPT</div>
+              <div className="text-sm text-slate-500">94 單元 · 8,000+ 單字 · 初級到中高級 · 聽說讀寫完整練習</div>
+            </div>
+            <span className="ml-auto text-blue-400">→</span>
+          </a>
         </div>
-        <div className="mt-4 p-4 rounded-xl bg-pink-50 border border-pink-100 text-center">
-          <span className="text-lg">💰</span>
-          <span className="font-bold text-slate-800 ml-2">而且完全免費，不用註冊！</span>
+        <div className="mt-4 grid grid-cols-2 sm:grid-cols-4 gap-3">
+          {[
+            { icon: "🇯🇵", label: "日文學習", status: "開發中" },
+            { icon: "🔢", label: "數學練習", status: "開發中" },
+            { icon: "🎲", label: "教育桌遊", status: "開發中" },
+            { icon: "💰", label: "兒童理財", status: "開發中" },
+          ].map((t) => (
+            <div key={t.label} className="p-3 rounded-xl bg-slate-50 border border-slate-100 text-center opacity-60">
+              <div className="text-2xl mb-1">{t.icon}</div>
+              <div className="text-sm font-medium text-slate-600">{t.label}</div>
+              <div className="text-xs text-slate-400">{t.status}</div>
+            </div>
+          ))}
         </div>
       </div>
 
+      {/* Company Info */}
       <div className="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm mb-6">
         <h2 className="text-xl font-bold text-slate-800 mb-4">🏢 智慧媽咪國際有限公司</h2>
         <p className="text-slate-600 leading-7 mb-4">
-          GEPT Learn 由<strong>智慧媽咪國際有限公司（Mommy Wisdom International LTD.）</strong>製作與維護。
+          親子多元學習平台由<strong>智慧媽咪國際有限公司（Mommy Wisdom International LTD.）</strong>製作與維護。
           我們是一家專注於數位行銷與教育科技的公司，相信科技可以讓學習變得更容易。
         </p>
         <div className="bg-slate-50 rounded-xl p-5 border border-slate-100">
@@ -81,6 +96,7 @@ export default function AboutPage() {
         </div>
       </div>
 
+      {/* Resources */}
       <div className="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm mb-6">
         <h2 className="text-xl font-bold text-slate-800 mb-4">🌐 更多資源</h2>
         <a href="https://chparenting.com" target="_blank" rel="noopener noreferrer"
@@ -94,6 +110,7 @@ export default function AboutPage() {
         </a>
       </div>
 
+      {/* CTA */}
       <div className="bg-gradient-to-r from-amber-50 to-orange-50 rounded-2xl p-8 border border-amber-200 text-center">
         <div className="text-2xl mb-2">💌</div>
         <h3 className="font-bold text-slate-800 mb-2">有想法想告訴我們？</h3>
