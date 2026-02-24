@@ -28,7 +28,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "如何回報問題或建議？",
-    a: "歡迎透過我們的官網 chparenting.com 聯繫我們。不管是功能建議、錯誤回報，還是想說聲加油，我們都非常歡迎！",
+    a: "歡迎透過我們的官網 aimommywisdom.com 聯繫我們。不管是功能建議、錯誤回報，還是想說聲加油，我們都非常歡迎！",
   },
   {
     q: "日文、數學等其他工具什麼時候上線？",
@@ -91,7 +91,7 @@ export default function FAQPage() {
 
       <div className="mt-10 text-center">
         <p className="text-slate-500 mb-3">還有其他問題？</p>
-        <a href="https://chparenting.com" target="_blank" rel="noopener noreferrer"
+        <a href="https://aimommywisdom.com" target="_blank" rel="noopener noreferrer"
           className="inline-block px-6 py-2.5 bg-blue-600 text-white rounded-xl font-semibold text-sm hover:bg-blue-700 transition no-underline">
           聯繫我們 →
         </a>

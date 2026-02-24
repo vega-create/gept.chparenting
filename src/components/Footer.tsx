@@ -12,7 +12,7 @@ export default function Footer() {
         </div>
         <p className="text-sm text-slate-400">
           © 2026 親子多元學習平台 — 由{" "}
-          <a href="https://chparenting.com" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">
+          <a href="https://aimommywisdom.com" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">
             智慧媽咪國際有限公司 Mommy Wisdom International LTD.
           </a>{" "}
           製作

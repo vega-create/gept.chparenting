@@ -17,7 +17,7 @@ const jsonLd = {
   publisher: {
     "@type": "Organization",
     name: "智慧媽咪國際有限公司 Mommy Wisdom International LTD.",
-    url: "https://chparenting.com",
+    url: "https://aimommywisdom.com",
   },
 };
 
@@ -30,11 +30,11 @@ const TOOLS = [
     features: ["94 單元電子書", "聽說讀寫 + 文法", "7 種遊戲練習", "模擬測驗 + 口說 + 寫作"],
   },
   {
-    id: "japanese", title: "日文學習", sub: "Japanese", icon: "🇯🇵",
-    desc: "五十音到 N5 基礎日文",
+    id: "japanese", title: "日文檢定", sub: "JLPT N5–N1", icon: "🇯🇵",
+    desc: "五十音到 N1 完整日文學習",
     color: "from-red-400 to-red-500", border: "border-red-200",
     active: false, href: "#",
-    features: ["五十音教學", "N5 單字練習", "假名互動遊戲"],
+    features: ["五十音教學", "N5～N1 單字文法", "聽力閱讀練習", "JLPT 模擬測驗"],
   },
   {
     id: "math", title: "數學練習", sub: "Math", icon: "🔢",

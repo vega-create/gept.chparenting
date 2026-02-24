@@ -14,7 +14,7 @@ const jsonLd = {
   mainEntity: {
     "@type": "Organization",
     name: "智慧媽咪國際有限公司 Mommy Wisdom International LTD.",
-    url: "https://chparenting.com",
+    url: "https://aimommywisdom.com",
     description: "專注於數位行銷與教育科技，打造免費親子學習平台。",
   },
 };
@@ -99,12 +99,12 @@ export default function AboutPage() {
       {/* Resources */}
       <div className="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm mb-6">
         <h2 className="text-xl font-bold text-slate-800 mb-4">🌐 更多資源</h2>
-        <a href="https://chparenting.com" target="_blank" rel="noopener noreferrer"
+        <a href="https://aimommywisdom.com" target="_blank" rel="noopener noreferrer"
           className="flex items-center gap-3 p-4 rounded-xl bg-gradient-to-r from-pink-50 to-rose-50 border border-pink-200 hover:shadow-md transition no-underline">
           <span className="text-2xl">👶</span>
           <div>
-            <div className="font-bold text-slate-800">CH Parenting</div>
-            <div className="text-sm text-slate-500">親子教養與家庭生活分享</div>
+            <div className="font-bold text-slate-800">AI Mommy Wisdom</div>
+            <div className="text-sm text-slate-500">智慧媽咪國際有限公司官網</div>
           </div>
           <span className="ml-auto text-pink-400">↗</span>
         </a>
@@ -118,7 +118,7 @@ export default function AboutPage() {
           不管是功能建議、錯誤回報，還是想說聲加油，都歡迎聯繫我們！<br />
           你的回饋是讓這個平台變得更好的最大動力 ❤️
         </p>
-        <a href="https://chparenting.com" target="_blank" rel="noopener noreferrer"
+        <a href="https://aimommywisdom.com" target="_blank" rel="noopener noreferrer"
           className="inline-block px-6 py-2.5 bg-amber-500 text-white rounded-xl font-semibold text-sm hover:bg-amber-600 transition no-underline">
           前往官網聯繫 →
         </a>
