@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700;800;900&display=swap');
+
+body {
+  font-family: 'Noto Sans TC', -apple-system, sans-serif;
+  background: #faf8f4;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-text-size-adjust: 100%;
+}
+
+/* Animations */
+@keyframes fadeIn { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:translateY(0); } }
+@keyframes slideUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+@keyframes float { 0%,100% { transform:translateY(0); } 50% { transform:translateY(-8px); } }
+
+.animate-fadeIn { animation: fadeIn 0.4s ease-out; }
+.animate-slideUp { animation: slideUp 0.5s ease-out; }
+.animate-float { animation: float 3s ease-in-out infinite; }
+.hover-lift { transition: transform 0.2s, box-shadow 0.2s; }
+.hover-lift:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0,0,0,0.1); }
+
+/* Mobile touch */
+button, a { -webkit-touch-callout: none; }
+button { touch-action: manipulation; }
+input, textarea { font-size: 16px !important; } /* Prevent iOS zoom on focus */
+
+/* Safe area for notched phones */
+.safe-bottom { padding-bottom: env(safe-area-inset-bottom, 0); }
+
+/* Smooth scroll */
+html { scroll-behavior: smooth; }
+
+/* Mobile bottom nav spacing */
+@media (max-width: 767px) {
+  footer { margin-bottom: 56px; }
+}
+
+/* Hide scrollbar on tab bar */
+.overflow-x-auto { -ms-overflow-style: none; scrollbar-width: none; }
+.overflow-x-auto::-webkit-scrollbar { display: none; }
+
+/* Active state for mobile buttons */
+@media (hover: none) {
+  .hover-lift:active { transform: scale(0.98); }
+  button:active { opacity: 0.85; }
+}
