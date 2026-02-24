@@ -102,7 +102,7 @@ function Footer() {
         <p className="text-sm text-slate-400">
           © 2026 GEPT Learn — 由{" "}
           <a href="https://chparenting.com" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">
-            智慧媽咪國際有限公司 Mommy Wisdom International Co. LTD
+            智慧媽咪國際有限公司 Mommy Wisdom International LTD.
           </a>{" "}
           製作
         </p>

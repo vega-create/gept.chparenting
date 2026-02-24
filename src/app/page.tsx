@@ -13,7 +13,7 @@ const jsonLd = {
   url: process.env.NEXT_PUBLIC_SITE_URL || "https://gept.chparenting.com",
   publisher: {
     "@type": "Organization",
-    name: "智慧媽咪國際有限公司 Mommy Wisdom International Co. LTD",
+    name: "智慧媽咪國際有限公司 Mommy Wisdom International LTD.",
     url: "https://chparenting.com",
   },
   potentialAction: {
@@ -29,21 +29,21 @@ const LEVELS = [
     desc: "國中畢業程度・2000 單字", icon: "🌱",
     color: "from-blue-500 to-blue-600", border: "border-blue-200", bg: "bg-blue-50",
     tag: "bg-blue-100 text-blue-700", ready: true,
-    features: ["20 單元電子書", "聽說讀寫 + 文法", "口說訓練中心", "7 種遊戲 + 模擬測驗"],
+    features: ["20 單元電子書", "聽說讀寫 + 文法", "口說訓練中心", "7 種遊戲 + 模擬測驗", "寫作練習"],
   },
   {
     id: "intermediate", title: "中級", sub: "Intermediate",
     desc: "高中畢業程度・5000 單字", icon: "⚡",
     color: "from-emerald-500 to-emerald-600", border: "border-emerald-200", bg: "bg-emerald-50",
     tag: "bg-emerald-100 text-emerald-700", ready: true,
-    features: ["20 單元電子書", "聽說讀寫 + 文法", "口說訓練中心", "7 種遊戲 + 模擬測驗"],
+    features: ["34 單元電子書", "聽說讀寫 + 文法", "口說訓練中心", "7 種遊戲 + 模擬測驗", "寫作練習"],
   },
   {
     id: "upper-intermediate", title: "中高級", sub: "Upper-Intermediate",
     desc: "大學程度・8000 單字", icon: "🔥",
     color: "from-purple-500 to-purple-600", border: "border-purple-200", bg: "bg-purple-50",
     tag: "bg-purple-100 text-purple-700", ready: true,
-    features: ["20 單元電子書", "聽說讀寫 + 文法", "口說訓練中心", "7 種遊戲 + 模擬測驗"],
+    features: ["40 單元電子書", "聽說讀寫 + 文法", "口說訓練中心", "7 種遊戲 + 模擬測驗", "寫作練習"],
   },
 ];
 

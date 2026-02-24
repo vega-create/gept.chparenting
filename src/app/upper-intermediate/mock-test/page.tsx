@@ -23,16 +23,17 @@ export default function MockTestPage() {
   const [phase, setPhase] = useState<Phase>("intro");
   const [listenQs, setListenQs] = useState<any[]>([]);
   const [vocabQs, setVocabQs] = useState<any[]>([]);
-  const [readingData, setReadingData] = useState<any>(null);
+  const [readingData, setReadingData] = useState<any[]>([]);
   const [answers, setAnswers] = useState<Record<string, number>>({});
   const [timer, setTimer] = useState(0);
   const [started, setStarted] = useState(false);
   const [listenPlays, setListenPlays] = useState<Record<number, number>>({});
 
   const startTest = () => {
-    setListenQs(shuffle(allListening).slice(0, 10));
-    setVocabQs(shuffle(allVocab).slice(0, 10));
-    setReadingData(allReading[Math.floor(Math.random() * allReading.length)]);
+    setListenQs(shuffle(allListening).slice(0, 15));
+    setVocabQs(shuffle(allVocab).slice(0, 15));
+    const shuffled = shuffle(allReading);
+    setReadingData(shuffled.slice(0, Math.min(2, shuffled.length)));
     setAnswers({});
     setTimer(0);
     setStarted(true);
@@ -59,7 +60,7 @@ export default function MockTestPage() {
     const details: any[] = [];
     listenQs.forEach((q, i) => { total++; const ok = answers[`l${i}`] === q.ans; if (ok) correct++; details.push({ section: "Listening", idx: i, question: q.text, userAns: answers[`l${i}`] ?? -1, correctAns: q.ans, opts: q.opts, correct: ok }); });
     vocabQs.forEach((q, i) => { total++; const ok = answers[`v${i}`] === q.ans; if (ok) correct++; details.push({ section: "Vocabulary & Grammar", idx: i, question: q.s, userAns: answers[`v${i}`] ?? -1, correctAns: q.ans, opts: q.opts, correct: ok }); });
-    readingData?.questions.forEach((q: any, i: number) => { total++; const ok = answers[`r${i}`] === q.ans; if (ok) correct++; details.push({ section: "Reading Comprehension", idx: i, question: q.q, userAns: answers[`r${i}`] ?? -1, correctAns: q.ans, opts: q.opts, correct: ok }); });
+    readingData.forEach((rd: any, pi: number) => { rd.questions.forEach((q: any, qi: number) => { total++; const ok = answers[`r${pi}_${qi}`] === q.ans; if (ok) correct++; details.push({ section: "Reading Comprehension", passageIdx: pi, idx: qi, question: q.q, userAns: answers[`r${pi}_${qi}`] ?? -1, correctAns: q.ans, opts: q.opts, correct: ok, passage: rd.passage }); }); });
     return { correct, total, details };
   }, [listenQs, vocabQs, readingData, answers]);
 
@@ -68,13 +69,13 @@ export default function MockTestPage() {
     <div className="max-w-2xl mx-auto px-4 py-12 text-center">
       <div className="bg-white rounded-2xl p-8 md:p-10 border border-slate-200 shadow-sm">
         <div className="text-5xl mb-4">📝</div>
-        <h1 className="text-2xl md:text-3xl font-black text-slate-800 mb-3">GEPT Elementary Mock Test</h1>
-        <p className="text-slate-500 mb-6">初級英檢模擬測驗（全英文出題，考完看答案）</p>
+        <h1 className="text-2xl md:text-3xl font-black text-slate-800 mb-3">GEPT Upper-Intermediate Mock Test</h1>
+        <p className="text-slate-500 mb-6">中高級英檢模擬測驗（全英文出題，考完看答案）</p>
         <div className="bg-blue-50 rounded-xl p-5 text-left mb-6 text-sm text-slate-700 space-y-3">
           <div className="font-bold text-blue-700 mb-1">Test Format：</div>
-          <div>🎧 <strong>Part 1 — Listening</strong>：10 questions（每題最多播放 3 次）</div>
-          <div>📖 <strong>Part 2 — Vocabulary & Grammar</strong>：10 questions</div>
-          <div>📗 <strong>Part 3 — Reading Comprehension</strong>：1 passage + 5 questions</div>
+          <div>🎧 <strong>Part 1 — Listening</strong>：15 questions（每題最多播放 3 次）</div>
+          <div>📖 <strong>Part 2 — Vocabulary & Grammar</strong>：15 questions</div>
+          <div>📗 <strong>Part 3 — Reading Comprehension</strong>：2 passages + ~10 questions</div>
           <div className="pt-2 border-t border-blue-200 text-blue-600 font-medium">
             ⚠️ 測驗中全英文，不顯示中文提示。考完才看成績與答案。
           </div>
@@ -82,7 +83,7 @@ export default function MockTestPage() {
         <button onClick={startTest} className="px-10 py-4 bg-blue-600 text-white rounded-xl font-bold text-lg cursor-pointer border-none hover:bg-blue-700 transition active:scale-95">
           🚀 Start Test
         </button>
-        <div className="mt-4"><a href="/upper-intermediate" className="text-sm text-blue-500 hover:underline">← Back to Elementary</a></div>
+        <div className="mt-4"><a href="/upper-intermediate" className="text-sm text-blue-500 hover:underline">← Back to Upper-Intermediate</a></div>
       </div>
     </div>
   );
@@ -94,7 +95,8 @@ export default function MockTestPage() {
     const pass = pct >= 72;
     const lS = listenQs.filter((q, i) => answers[`l${i}`] === q.ans).length;
     const vS = vocabQs.filter((q, i) => answers[`v${i}`] === q.ans).length;
-    const rS = readingData?.questions.filter((q: any, i: number) => answers[`r${i}`] === q.ans).length || 0;
+    const rTotal2 = readingData.reduce((sum: number, rd: any) => sum + rd.questions.length, 0);
+    const rS = readingData.reduce((sum: number, rd: any, pi: number) => sum + rd.questions.filter((q: any, qi: number) => answers[`r${pi}_${qi}`] === q.ans).length, 0);
     return (
       <div className="max-w-lg mx-auto px-4 py-10 text-center">
         <div className="bg-white rounded-2xl p-8 md:p-10 border border-slate-200 shadow-lg">
@@ -109,7 +111,7 @@ export default function MockTestPage() {
           <div className="bg-slate-50 rounded-xl p-4 text-left text-sm space-y-2 mb-6">
             <div className="flex justify-between"><span>🎧 Listening</span><span className="font-bold">{lS}/{listenQs.length}</span></div>
             <div className="flex justify-between"><span>📖 Vocabulary & Grammar</span><span className="font-bold">{vS}/{vocabQs.length}</span></div>
-            <div className="flex justify-between"><span>📗 Reading</span><span className="font-bold">{rS}/{readingData?.questions.length || 0}</span></div>
+            <div className="flex justify-between"><span>📗 Reading</span><span className="font-bold">{rS}/{rTotal2}</span></div>
           </div>
           <div className="flex gap-3 justify-center flex-wrap">
             <button onClick={() => setPhase("review")} className="px-6 py-2.5 rounded-xl bg-indigo-600 text-white font-semibold text-sm cursor-pointer border-none hover:bg-indigo-700 transition">📋 Review Answers</button>
@@ -136,8 +138,10 @@ export default function MockTestPage() {
           return (
             <div key={section} className="mb-6">
               <h3 className="text-sm font-bold text-slate-700 mb-3">{section === "Listening" ? "🎧" : section === "Vocabulary & Grammar" ? "📖" : "📗"} {section}</h3>
-              {section === "Reading Comprehension" && readingData && (
-                <div className="bg-blue-50 rounded-xl p-4 mb-3 text-sm leading-7 text-slate-700 whitespace-pre-line">{readingData.passage}</div>
+              {section === "Reading Comprehension" && readingData.length > 0 && (
+                <div className="space-y-3 mb-3">{readingData.map((rd: any, pi: number) => (
+                  <div key={pi} className="bg-blue-50 rounded-xl p-4 text-sm leading-7 text-slate-700 whitespace-pre-line"><div className="text-xs font-semibold text-blue-600 mb-2">Passage {pi + 1}</div>{rd.passage}</div>
+                ))}</div>
               )}
               <div className="space-y-3">
                 {items.map((item: any, i: number) => (
@@ -170,8 +174,10 @@ export default function MockTestPage() {
 
   // ─── TEST (ALL ENGLISH, NO CHINESE) ───
   const lDone = listenQs.filter((_, i) => answers[`l${i}`] !== undefined).length;
-  const rDone = vocabQs.filter((_, i) => answers[`v${i}`] !== undefined).length + (readingData?.questions.filter((_: any, i: number) => answers[`r${i}`] !== undefined).length || 0);
-  const rTotal = vocabQs.length + (readingData?.questions.length || 0);
+  const readingQTotal = readingData.reduce((sum: number, rd: any) => sum + rd.questions.length, 0);
+  const readingQDone = readingData.reduce((sum: number, rd: any, pi: number) => sum + rd.questions.filter((_: any, qi: number) => answers[`r${pi}_${qi}`] !== undefined).length, 0);
+  const rDone = vocabQs.filter((_, i) => answers[`v${i}`] !== undefined).length + readingQDone;
+  const rTotal = vocabQs.length + readingQTotal;
 
   return (
     <div className="max-w-3xl mx-auto px-4 py-6">
@@ -233,21 +239,29 @@ export default function MockTestPage() {
             </div>
           ))}
           <h3 className="font-bold text-slate-800 mt-8 text-base">Part 3: Reading Comprehension</h3>
-          <div className="bg-white rounded-xl p-4 md:p-6 border border-slate-200">
-            <div className="text-xs font-semibold text-blue-600 mb-2 uppercase tracking-wide">Read the following passage:</div>
-            <p className="text-sm md:text-base leading-7 md:leading-8 text-slate-700 whitespace-pre-line">{readingData.passage}</p>
-          </div>
-          {readingData.questions.map((q: any, i: number) => (
-            <div key={i} className="bg-white rounded-xl p-4 md:p-5 border border-slate-200">
-              <div className="font-medium text-slate-800 mb-3 text-sm">{vocabQs.length + i + 1}. {q.q}</div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                {q.opts.map((o: string, oi: number) => (
-                  <button key={oi} onClick={() => setAns(`r${i}`, oi)}
-                    className={`p-2.5 rounded-lg border text-sm text-left cursor-pointer transition ${answers[`r${i}`] === oi ? "bg-blue-50 border-blue-400 font-medium" : "bg-slate-50 border-slate-200 hover:bg-slate-100"}`}>{String.fromCharCode(65 + oi)}. {o}</button>
+          {readingData.map((rd: any, pi: number) => {
+            const qOffset = vocabQs.length + readingData.slice(0, pi).reduce((s: number, r: any) => s + r.questions.length, 0);
+            return (
+              <div key={pi}>
+                {pi > 0 && <div className="border-t border-dashed border-slate-300 my-6" />}
+                <div className="bg-white rounded-xl p-4 md:p-6 border border-slate-200 mb-4">
+                  <div className="text-xs font-semibold text-blue-600 mb-2 uppercase tracking-wide">Passage {pi + 1}:</div>
+                  <p className="text-sm md:text-base leading-7 md:leading-8 text-slate-700 whitespace-pre-line">{rd.passage}</p>
+                </div>
+                {rd.questions.map((q: any, qi: number) => (
+                  <div key={qi} className="bg-white rounded-xl p-4 md:p-5 border border-slate-200 mb-4">
+                    <div className="font-medium text-slate-800 mb-3 text-sm">{qOffset + qi + 1}. {q.q}</div>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                      {q.opts.map((o: string, oi: number) => (
+                        <button key={oi} onClick={() => setAns(`r${pi}_${qi}`, oi)}
+                          className={`p-2.5 rounded-lg border text-sm text-left cursor-pointer transition ${answers[`r${pi}_${qi}`] === oi ? "bg-blue-50 border-blue-400 font-medium" : "bg-slate-50 border-slate-200 hover:bg-slate-100"}`}>{String.fromCharCode(65 + oi)}. {o}</button>
+                      ))}
+                    </div>
+                  </div>
                 ))}
               </div>
-            </div>
-          ))}
+            );
+          })}
           <div className="text-center py-6">
             <button onClick={() => { setStarted(false); setPhase("result"); const s = calcScore(); const p = Math.round((s.correct / s.total) * 100); if (p === 100) playPerfect(); else if (p >= 72) playVictory(); else playWrong(); }} disabled={rDone < rTotal}
               className="px-10 py-4 bg-emerald-600 text-white rounded-xl font-bold text-lg cursor-pointer border-none hover:bg-emerald-700 transition disabled:opacity-40">📊 Submit Test</button>
