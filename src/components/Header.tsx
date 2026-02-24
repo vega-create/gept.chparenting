@@ -10,9 +10,18 @@ const GEPT_LEVELS = [
   { label: "中高級", href: "/upper-intermediate" },
 ];
 
+const JLPT_LEVELS = [
+  { label: "N5（入門）", href: "/jlpt-n5", active: true },
+  { label: "N4", href: "#", active: false },
+  { label: "N3", href: "#", active: false },
+  { label: "N2", href: "#", active: false },
+  { label: "N1", href: "#", active: false },
+];
+
 export default function Header() {
   const pathname = usePathname();
   const [geptOpen, setGeptOpen] = useState(false);
+  const [jlptOpen, setJlptOpen] = useState(false);
 
   return (
     <header className="bg-white border-b border-slate-200 sticky top-0 z-50">
@@ -53,6 +62,40 @@ export default function Header() {
               </div>
             )}
           </div>
+
+          {/* JLPT dropdown */}
+          <div className="relative"
+            onMouseEnter={() => setJlptOpen(true)}
+            onMouseLeave={() => setJlptOpen(false)}
+          >
+            <button
+              className={`px-3 py-2 rounded-lg font-medium transition flex items-center gap-1 bg-transparent border-0 cursor-pointer ${
+                pathname.startsWith("/jlpt")
+                  ? "text-red-600 bg-red-50"
+                  : "text-slate-600 hover:bg-red-50 hover:text-red-600"
+              }`}
+            >
+              日文檢定 <span className="text-xs">▾</span>
+            </button>
+            {jlptOpen && (
+              <div className="absolute left-0 top-full bg-white border border-slate-200 rounded-xl shadow-lg z-50 overflow-hidden min-w-[130px]">
+                {JLPT_LEVELS.map(l => (
+                  <a key={l.label} href={l.active ? l.href : undefined}
+                    className={`block px-4 py-2.5 text-sm font-medium no-underline transition ${
+                      !l.active ? "text-slate-300 cursor-default" :
+                      pathname.startsWith(l.href) ? "text-red-600 bg-red-50" : "text-slate-600 hover:bg-slate-50"
+                    }`}>
+                    {l.label} {!l.active && <span className="text-xs">🔜</span>}
+                  </a>
+                ))}
+              </div>
+            )}
+          </div>
+
+          {/* Typing game */}
+          <a href="/typing-game" className={`px-3 py-2 rounded-lg font-medium transition no-underline ${
+            pathname === "/typing-game" ? "text-cyan-600 bg-cyan-50" : "text-slate-600 hover:bg-cyan-50 hover:text-cyan-600"
+          }`}>打字練習</a>
 
           <a href="/how-to-use" className={`px-3 py-2 rounded-lg font-medium transition no-underline ${
             pathname === "/how-to-use" ? "text-blue-600 bg-blue-50" : "text-slate-600 hover:bg-blue-50 hover:text-blue-600"
