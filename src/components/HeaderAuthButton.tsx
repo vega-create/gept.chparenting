@@ -1,6 +1,7 @@
 "use client";
 import { useAuth } from "@/contexts/AuthContext";
 import { useState } from "react";
+import Image from "next/image";
 
 export default function HeaderAuthButton() {
   const { user, loading, configured, signOut } = useAuth();
@@ -45,7 +46,7 @@ export default function HeaderAuthButton() {
         className="flex items-center gap-2 bg-transparent border border-slate-200 rounded-lg px-3 py-1.5 cursor-pointer hover:bg-slate-50 transition"
       >
         {avatarUrl ? (
-          <img src={avatarUrl} alt="" className="w-6 h-6 rounded-full" />
+          <Image src={avatarUrl} alt="" width={24} height={24} className="w-6 h-6 rounded-full" />
         ) : (
           <div className="w-6 h-6 rounded-full bg-blue-100 flex items-center justify-center text-xs font-bold text-blue-600">
             {displayName[0]}
