@@ -33,7 +33,7 @@ const TOOLS = [
     id: "japanese", title: "日文檢定", sub: "JLPT N5–N1", icon: "🇯🇵",
     desc: "五十音到 N1 完整日文學習",
     color: "from-red-400 to-red-500", border: "border-red-200",
-    active: false, href: "#",
+    active: true, href: "/jlpt-n5",
     features: ["五十音教學", "N5～N1 單字文法", "聽力閱讀練習", "JLPT 模擬測驗"],
   },
   {
@@ -44,11 +44,11 @@ const TOOLS = [
     features: ["四則運算", "應用題練習", "闖關模式"],
   },
   {
-    id: "boardgame", title: "教育桌遊", sub: "Board Games", icon: "🎲",
-    desc: "邊玩邊學的線上桌遊",
+    id: "typing", title: "打字練習", sub: "Typing Game", icon: "⌨️",
+    desc: "中英雙語打字訓練",
     color: "from-emerald-400 to-emerald-500", border: "border-emerald-200",
-    active: false, href: "#",
-    features: ["單字配對", "數學對戰", "理財大富翁"],
+    active: true, href: "/typing-game",
+    features: ["英文打字練習", "注音輸入練習", "落下文字遊戲", "打字速度測試"],
   },
   {
     id: "finance", title: "兒童理財", sub: "Financial Literacy", icon: "💰",
@@ -82,6 +82,9 @@ export default function HomePage() {
             <div className="flex flex-wrap justify-center gap-3">
               <a href="/elementary" className="px-8 py-3 bg-white text-blue-700 rounded-xl font-bold text-lg hover:bg-blue-50 transition shadow-lg hover:shadow-xl no-underline">
                 📘 開始學英檢
+              </a>
+              <a href="/jlpt-n5" className="px-8 py-3 bg-white text-red-600 rounded-xl font-bold text-lg hover:bg-red-50 transition shadow-lg hover:shadow-xl no-underline">
+                🇯🇵 學日文
               </a>
               <a href="#tools" className="px-8 py-3 bg-white/10 border border-white/30 rounded-xl font-semibold text-lg hover:bg-white/20 transition no-underline">
                 探索所有工具 ↓

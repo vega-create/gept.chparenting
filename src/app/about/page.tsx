@@ -42,8 +42,8 @@ export default function AboutPage() {
           透過互動式的遊戲化學習，每個孩子都能用自己的節奏快樂成長。
         </p>
         <p className="text-slate-600 leading-7">
-          目前已上線<strong>全民英檢</strong>學習工具（初級・中級・中高級），
-          日文、數學、教育桌遊等更多學習工具正在開發中 🚀
+          目前已上線<strong>全民英檢</strong>學習工具（初級・中級・中高級）及<strong>JLPT 日文檢定</strong>（N5 入門），
+          更多級別及數學、教育桌遊等學習工具正在開發中 🚀
         </p>
       </div>
 
@@ -59,10 +59,25 @@ export default function AboutPage() {
             </div>
             <span className="ml-auto text-blue-400">→</span>
           </a>
+          <a href="/jlpt-n5" className="flex items-center gap-4 p-4 rounded-xl bg-red-50 border border-red-100 hover:shadow-md transition no-underline">
+            <span className="text-3xl">🇯🇵</span>
+            <div>
+              <div className="font-bold text-slate-800">JLPT 日文檢定</div>
+              <div className="text-sm text-slate-500">N5 入門 · 五十音 · 單字文法 · 聽力閱讀 · 遊戲 · 模擬測驗</div>
+            </div>
+            <span className="ml-auto text-red-400">→</span>
+          </a>
+          <a href="/typing-game" className="flex items-center gap-4 p-4 rounded-xl bg-emerald-50 border border-emerald-100 hover:shadow-md transition no-underline">
+            <span className="text-3xl">⌨️</span>
+            <div>
+              <div className="font-bold text-slate-800">打字練習</div>
+              <div className="text-sm text-slate-500">中英雙語打字訓練 · 落下文字 · 限時挑戰 · 速度測試</div>
+            </div>
+            <span className="ml-auto text-emerald-400">→</span>
+          </a>
         </div>
-        <div className="mt-4 grid grid-cols-2 sm:grid-cols-4 gap-3">
+        <div className="mt-4 grid grid-cols-2 sm:grid-cols-3 gap-3">
           {[
-            { icon: "🇯🇵", label: "日文學習", status: "開發中" },
             { icon: "🔢", label: "數學練習", status: "開發中" },
             { icon: "🎲", label: "教育桌遊", status: "開發中" },
             { icon: "💰", label: "兒童理財", status: "開發中" },
@@ -99,15 +114,26 @@ export default function AboutPage() {
       {/* Resources */}
       <div className="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm mb-6">
         <h2 className="text-xl font-bold text-slate-800 mb-4">🌐 更多資源</h2>
-        <a href="https://aimommywisdom.com" target="_blank" rel="noopener noreferrer"
-          className="flex items-center gap-3 p-4 rounded-xl bg-gradient-to-r from-pink-50 to-rose-50 border border-pink-200 hover:shadow-md transition no-underline">
-          <span className="text-2xl">👶</span>
-          <div>
-            <div className="font-bold text-slate-800">AI Mommy Wisdom</div>
-            <div className="text-sm text-slate-500">智慧媽咪國際有限公司官網</div>
-          </div>
-          <span className="ml-auto text-pink-400">↗</span>
-        </a>
+        <div className="space-y-3">
+          <a href="https://aimommywisdom.com" target="_blank" rel="noopener noreferrer"
+            className="flex items-center gap-3 p-4 rounded-xl bg-gradient-to-r from-pink-50 to-rose-50 border border-pink-200 hover:shadow-md transition no-underline">
+            <span className="text-2xl">👶</span>
+            <div>
+              <div className="font-bold text-slate-800">AI Mommy Wisdom</div>
+              <div className="text-sm text-slate-500">智慧媽咪國際有限公司官網</div>
+            </div>
+            <span className="ml-auto text-pink-400">↗</span>
+          </a>
+          <a href="https://chparenting.com" target="_blank" rel="noopener noreferrer"
+            className="flex items-center gap-3 p-4 rounded-xl bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 hover:shadow-md transition no-underline">
+            <span className="text-2xl">👨‍👩‍👧</span>
+            <div>
+              <div className="font-bold text-slate-800">CH Parenting</div>
+              <div className="text-sm text-slate-500">親子教養與家庭生活分享</div>
+            </div>
+            <span className="ml-auto text-blue-400">↗</span>
+          </a>
+        </div>
       </div>
 
       {/* CTA */}

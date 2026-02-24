@@ -35,5 +35,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...levelPages("elementary", 20, 0.9),
     ...levelPages("intermediate", 34, 0.8),
     ...levelPages("upper-intermediate", 40, 0.8),
+
+    // JLPT levels
+    ...levelPages("jlpt-n5", 20, 0.8),
+    { url: `${BASE}/jlpt-n5/gojuon`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.7 },
+
+    // Typing game
+    { url: `${BASE}/typing-game`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.7 },
   ];
 }

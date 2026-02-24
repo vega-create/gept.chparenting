@@ -17,6 +17,13 @@ const ROUTE_LABELS: Record<string, string> = {
   "login": "登入",
   "dashboard": "學習紀錄",
   "gept": "全民英檢",
+  "jlpt-n5": "JLPT N5",
+  "jlpt-n4": "JLPT N4",
+  "jlpt-n3": "JLPT N3",
+  "jlpt-n2": "JLPT N2",
+  "jlpt-n1": "JLPT N1",
+  "gojuon": "五十音",
+  "typing-game": "打字練習",
 };
 
 interface BreadcrumbItem {
