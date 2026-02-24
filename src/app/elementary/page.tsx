@@ -32,12 +32,18 @@ export default function ElementaryPage() {
         ))}
       </div>
 
-      <div className="grid md:grid-cols-3 gap-4">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         <Link href="/elementary/speaking"
           className="p-6 bg-gradient-to-r from-red-50 to-pink-50 rounded-2xl border border-red-200 hover-lift no-underline text-center">
           <div className="text-3xl mb-2">🎙️</div>
           <div className="font-bold text-slate-800">口說訓練</div>
           <div className="text-sm text-slate-500 mt-1">發音、跟讀、朗讀、問答</div>
+        </Link>
+        <Link href="/elementary/writing"
+          className="p-6 bg-gradient-to-r from-violet-50 to-purple-50 rounded-2xl border border-violet-200 hover-lift no-underline text-center">
+          <div className="text-3xl mb-2">✍️</div>
+          <div className="font-bold text-slate-800">寫作練習</div>
+          <div className="text-sm text-slate-500 mt-1">句子重組、翻譯、段落排序</div>
         </Link>
         <Link href="/elementary/game"
           className="p-6 bg-gradient-to-r from-amber-50 to-orange-50 rounded-2xl border border-amber-200 hover-lift no-underline text-center">

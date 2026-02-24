@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "關於我們 | GEPT 全民英檢免費學習平台",
-  description: "GEPT Learn 是由智慧媽咪國際有限公司（Mommy Wisdom International Co. LTD）製作的免費英檢學習平台，希望讓孩子開心練英文。",
+  description: "GEPT Learn 是由智慧媽咪國際有限公司（Mommy Wisdom International LTD.）製作的免費英檢學習平台，希望讓孩子開心練英文。",
 };
 
 export default function AboutPage() {
@@ -37,8 +37,8 @@ export default function AboutPage() {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div className="p-4 rounded-xl bg-blue-50 border border-blue-100">
             <div className="text-2xl mb-2">📖</div>
-            <div className="font-bold text-slate-800 mb-1">初級 + 中級 + 中高級各 20 單元</div>
-            <div className="text-sm text-slate-500">超過 5,900 個單字，涵蓋英檢初級到中高級範圍</div>
+            <div className="font-bold text-slate-800 mb-1">初級 20 + 中級 34 + 中高級 40 單元</div>
+            <div className="text-sm text-slate-500">超過 8,000 個單字，涵蓋英檢初級到中高級範圍</div>
           </div>
           <div className="p-4 rounded-xl bg-purple-50 border border-purple-100">
             <div className="text-2xl mb-2">🎧</div>
@@ -65,7 +65,7 @@ export default function AboutPage() {
       <div className="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm mb-6">
         <h2 className="text-xl font-bold text-slate-800 mb-4">🏢 智慧媽咪國際有限公司</h2>
         <p className="text-slate-600 leading-7 mb-4">
-          GEPT Learn 由<strong>智慧媽咪國際有限公司（Mommy Wisdom International Co. LTD）</strong>製作與維護。
+          GEPT Learn 由<strong>智慧媽咪國際有限公司（Mommy Wisdom International LTD.）</strong>製作與維護。
           我們是一家專注於數位行銷與教育科技的公司，相信科技可以讓學習變得更容易。
         </p>
         <div className="bg-slate-50 rounded-xl p-5 border border-slate-100">
