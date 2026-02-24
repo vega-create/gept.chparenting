@@ -70,7 +70,7 @@ export default function TypingGamePage() {
   const [zhPhrases, setZhPhrases] = useState<{ text: string; zhuyin: string }[]>([]);
   const [zhIdx, setZhIdx] = useState(0);
   const [zhInput, setZhInput] = useState("");
-  const [composing, setComposing] = useState(false);
+  const composingRef = useRef(false);
 
   const resetGame = useCallback(() => {
     setScore(0); setCombo(0); setMaxCombo(0); setCorrect(0); setWrong(0);
@@ -196,6 +196,7 @@ export default function TypingGamePage() {
   // Time attack input
   const handleTimeAttackInput = (val: string) => {
     setInput(val);
+    if (composingRef.current) return;
     const pool = lang === "en"
       ? ENGLISH_WORDS[difficulty]
       : CHINESE_PHRASES[difficulty].map(p => p.text);
@@ -212,6 +213,7 @@ export default function TypingGamePage() {
   // Sentence input
   const handleSentenceInput = (val: string) => {
     setSentInput(val);
+    if (composingRef.current) return;
     const target = lang === "en" ? sentences[sentIdx] : zhPhrases[zhIdx]?.text;
     if (!target) return;
 
@@ -233,8 +235,9 @@ export default function TypingGamePage() {
 
   // Speed test input
   const handleSpeedInput = (val: string) => {
-    if (!speedStarted) { setSpeedStarted(true); setStartTime(Date.now()); }
     setSpeedInput(val);
+    if (composingRef.current) return;
+    if (!speedStarted) { setSpeedStarted(true); setStartTime(Date.now()); }
 
     if (val.length >= speedText.length) {
       let correctChars = 0;
@@ -284,7 +287,7 @@ export default function TypingGamePage() {
         <button onClick={() => setLang("zh")}
           className={`px-5 py-2.5 rounded-xl text-sm font-semibold border transition cursor-pointer ${
             lang === "zh" ? "bg-red-500 text-white border-red-500" : "bg-white border-slate-200 text-slate-600"
-          }`}>中 中文</button>
+          }`}>ㄅ 中文</button>
       </div>
 
       <div className="flex justify-center gap-2 mb-8">
@@ -435,8 +438,8 @@ export default function TypingGamePage() {
             ref={inputRef}
             value={input}
             onChange={e => handleTimeAttackInput(e.target.value)}
-            onCompositionStart={() => setComposing(true)}
-            onCompositionEnd={e => { setComposing(false); handleTimeAttackInput((e.target as HTMLInputElement).value); }}
+            onCompositionStart={() => { composingRef.current = true; }}
+            onCompositionEnd={e => { composingRef.current = false; handleTimeAttackInput((e.target as HTMLInputElement).value); }}
             className="w-full p-4 rounded-xl border-2 border-slate-200 text-lg font-mono text-center outline-none focus:border-blue-500 transition"
             placeholder={lang === "en" ? "Type here..." : "在此輸入..."}
             autoFocus
@@ -472,9 +475,9 @@ export default function TypingGamePage() {
           <input
             ref={inputRef}
             value={sentInput}
-            onChange={e => !composing && handleSentenceInput(e.target.value)}
-            onCompositionStart={() => setComposing(true)}
-            onCompositionEnd={e => { setComposing(false); handleSentenceInput((e.target as HTMLInputElement).value); }}
+            onChange={e => handleSentenceInput(e.target.value)}
+            onCompositionStart={() => { composingRef.current = true; }}
+            onCompositionEnd={e => { composingRef.current = false; handleSentenceInput((e.target as HTMLInputElement).value); }}
             className="w-full p-4 rounded-xl border-2 border-slate-200 text-lg font-mono outline-none focus:border-blue-500 transition"
             placeholder={lang === "en" ? "Type the sentence..." : "輸入上方句子..."}
             autoFocus
@@ -502,9 +505,9 @@ export default function TypingGamePage() {
           <textarea
             ref={inputRef as unknown as React.RefObject<HTMLTextAreaElement>}
             value={speedInput}
-            onChange={e => !composing && handleSpeedInput(e.target.value)}
-            onCompositionStart={() => setComposing(true)}
-            onCompositionEnd={e => { setComposing(false); handleSpeedInput((e.target as HTMLTextAreaElement).value); }}
+            onChange={e => handleSpeedInput(e.target.value)}
+            onCompositionStart={() => { composingRef.current = true; }}
+            onCompositionEnd={e => { composingRef.current = false; handleSpeedInput((e.target as HTMLTextAreaElement).value); }}
             className="w-full p-4 rounded-xl border-2 border-slate-200 text-base font-mono outline-none focus:border-blue-500 transition resize-none"
             rows={4}
             placeholder={lang === "en" ? "Start typing to begin..." : "開始打字即計時..."}
