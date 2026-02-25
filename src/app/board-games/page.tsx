@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "教育桌遊專區 | 邏輯・程式・記憶・反應力訓練",
-  description: "10 款免費線上教育桌遊，訓練邏輯推理、程式設計概念、記憶力與反應力，適合 6-15 歲兒童。",
+  title: "教育桌遊專區 | 邏輯・程式・記憶・反應・數學・語言訓練",
+  description: "16 款免費線上教育桌遊，訓練邏輯推理、程式設計概念、記憶力、反應力、數學能力與語言力，適合 6-15 歲兒童。",
   alternates: { canonical: "https://learn.chparenting.com/board-games" },
 };
 
@@ -38,6 +38,27 @@ const CATEGORIES = [
       { id: "whack-a-mole", icon: "🐹", name: "打地鼠", desc: "快速反應點擊挑戰", difficulty: "初級" },
     ],
   },
+  {
+    title: "🔢 數學挑戰", color: "from-emerald-500 to-teal-600", border: "border-emerald-200",
+    games: [
+      { id: "math-rush", icon: "🧮", name: "數學衝刺", desc: "限時數學計算挑戰", difficulty: "初級～高級" },
+      { id: "speed-sort", icon: "📊", name: "快速排序", desc: "最快速度排好數字", difficulty: "初級～中級" },
+    ],
+  },
+  {
+    title: "📝 語言探索", color: "from-blue-500 to-violet-600", border: "border-blue-200",
+    games: [
+      { id: "word-chain", icon: "🔗", name: "接龍大師", desc: "英文單字接龍挑戰", difficulty: "初級～中級" },
+      { id: "word-search", icon: "🔎", name: "單字搜尋", desc: "在字母方陣中找單字", difficulty: "初級～中級" },
+    ],
+  },
+  {
+    title: "🎯 解謎冒險", color: "from-red-500 to-pink-600", border: "border-red-200",
+    games: [
+      { id: "maze-runner", icon: "🏃", name: "迷宮探險", desc: "找出迷宮的出路", difficulty: "初級～高級" },
+      { id: "emoji-puzzle", icon: "😀", name: "表情密碼", desc: "破解表情符號方程式", difficulty: "初級～中級" },
+    ],
+  },
 ];
 
 export default function BoardGamesPage() {
@@ -46,7 +67,7 @@ export default function BoardGamesPage() {
       <div className="text-center mb-10">
         <div className="text-5xl mb-3 animate-float">🎲</div>
         <h1 className="text-3xl font-black text-slate-800 mb-2">教育桌遊專區</h1>
-        <p className="text-slate-500">邏輯 · 程式 · 記憶 · 反應 — 邊玩邊學</p>
+        <p className="text-slate-500">邏輯 · 程式 · 記憶 · 反應 · 數學 · 語言 — 邊玩邊學</p>
       </div>
 
       <div className="space-y-8">

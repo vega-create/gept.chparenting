@@ -22,6 +22,16 @@ function levelPages(level: string, unitCount: number, priority: number) {
   ];
 }
 
+const BOARD_GAMES = [
+  "pattern-master", "mini-sudoku", "sequence-quest",
+  "code-path", "logic-gates", "loop-builder",
+  "memory-match", "memory-sequence",
+  "color-tap", "whack-a-mole",
+  "math-rush", "speed-sort",
+  "word-chain", "word-search",
+  "maze-runner", "emoji-puzzle",
+];
+
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
     // Platform pages
@@ -39,6 +49,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // JLPT levels
     ...levelPages("jlpt-n5", 20, 0.8),
     { url: `${BASE}/jlpt-n5/gojuon`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.7 },
+    ...levelPages("jlpt-n4", 20, 0.8),
+    ...levelPages("jlpt-n3", 20, 0.8),
+    ...levelPages("jlpt-n2", 20, 0.7),
+    ...levelPages("jlpt-n1", 20, 0.7),
+
+    // Board games
+    { url: `${BASE}/board-games`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.7 },
+    ...BOARD_GAMES.map(id => ({
+      url: `${BASE}/board-games/${id}`,
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
+      priority: 0.6,
+    })),
 
     // Typing game
     { url: `${BASE}/typing-game`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.7 },

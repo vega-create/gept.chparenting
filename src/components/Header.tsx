@@ -13,9 +13,9 @@ const GEPT_LEVELS = [
 const JLPT_LEVELS = [
   { label: "N5（入門）", href: "/jlpt-n5", active: true },
   { label: "N4（基礎）", href: "/jlpt-n4", active: true },
-  { label: "N3", href: "#", active: false },
-  { label: "N2", href: "#", active: false },
-  { label: "N1", href: "#", active: false },
+  { label: "N3（中級）", href: "/jlpt-n3", active: true },
+  { label: "N2（上級）", href: "/jlpt-n2", active: true },
+  { label: "N1（最上級）", href: "/jlpt-n1", active: true },
 ];
 
 export default function Header() {
