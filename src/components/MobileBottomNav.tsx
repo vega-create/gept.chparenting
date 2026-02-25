@@ -3,6 +3,7 @@ import { usePathname } from "next/navigation";
 
 const GEPT_PREFIXES = ["/elementary", "/intermediate", "/upper-intermediate"];
 const JLPT_PREFIXES = ["/jlpt-n5", "/jlpt-n4", "/jlpt-n3", "/jlpt-n2", "/jlpt-n1"];
+const BOARD_GAME_PREFIX = "/board-games";
 
 export default function MobileBottomNav() {
   const pathname = usePathname();
@@ -10,6 +11,7 @@ export default function MobileBottomNav() {
   // Check if we're in a GEPT level section
   const isGeptSection = GEPT_PREFIXES.some(p => pathname.startsWith(p));
   const isJlptSection = JLPT_PREFIXES.some(p => pathname.startsWith(p));
+  const isBoardGameSection = pathname.startsWith(BOARD_GAME_PREFIX);
 
   if (isGeptSection) {
     return <GeptNav pathname={pathname} />;
@@ -17,6 +19,10 @@ export default function MobileBottomNav() {
 
   if (isJlptSection) {
     return <JlptNav pathname={pathname} />;
+  }
+
+  if (isBoardGameSection) {
+    return <BoardGameNav pathname={pathname} />;
   }
 
   return <PlatformNav pathname={pathname} />;
@@ -27,6 +33,7 @@ function PlatformNav({ pathname }: { pathname: string }) {
     { href: "/", icon: "🏠", label: "首頁", match: pathname === "/" },
     { href: "/elementary", icon: "📘", label: "英檢", match: false },
     { href: "/jlpt-n5", icon: "🇯🇵", label: "日文", match: false },
+    { href: "/board-games", icon: "🎲", label: "桌遊", match: false },
     { href: "/how-to-use", icon: "📋", label: "說明", match: pathname === "/how-to-use" },
   ];
 
@@ -69,6 +76,32 @@ function JlptNav({ pathname }: { pathname: string }) {
           <a key={item.href} href={item.href}
             className={`flex flex-col items-center gap-0.5 no-underline py-1 px-3 transition ${
               item.match ? "text-red-500" : "text-slate-400 hover:text-red-500"
+            }`}>
+            <span className="text-lg">{item.icon}</span>
+            <span className="text-[10px] font-medium">{item.label}</span>
+          </a>
+        ))}
+      </div>
+    </nav>
+  );
+}
+
+function BoardGameNav({ pathname }: { pathname: string }) {
+  const items = [
+    { href: "/", icon: "🏠", label: "首頁", match: false },
+    { href: "/board-games", icon: "🎲", label: "桌遊", match: pathname === "/board-games" },
+    { href: "/board-games/memory-match", icon: "🧠", label: "記憶", match: pathname.includes("/memory") },
+    { href: "/board-games/code-path", icon: "💻", label: "程式", match: pathname.includes("/code-path") || pathname.includes("/logic-gates") || pathname.includes("/loop-builder") },
+    { href: "/board-games/pattern-master", icon: "🧩", label: "邏輯", match: pathname.includes("/pattern") || pathname.includes("/sudoku") || pathname.includes("/sequence") },
+  ];
+
+  return (
+    <nav className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-slate-200 safe-bottom">
+      <div className="flex justify-around items-center h-14">
+        {items.map(item => (
+          <a key={item.href} href={item.href}
+            className={`flex flex-col items-center gap-0.5 no-underline py-1 px-3 transition ${
+              item.match ? "text-orange-500" : "text-slate-400 hover:text-orange-500"
             }`}>
             <span className="text-lg">{item.icon}</span>
             <span className="text-[10px] font-medium">{item.label}</span>

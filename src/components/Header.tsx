@@ -12,7 +12,7 @@ const GEPT_LEVELS = [
 
 const JLPT_LEVELS = [
   { label: "N5（入門）", href: "/jlpt-n5", active: true },
-  { label: "N4", href: "#", active: false },
+  { label: "N4（基礎）", href: "/jlpt-n4", active: true },
   { label: "N3", href: "#", active: false },
   { label: "N2", href: "#", active: false },
   { label: "N1", href: "#", active: false },
@@ -96,6 +96,11 @@ export default function Header() {
           <a href="/typing-game" className={`px-3 py-2 rounded-lg font-medium transition no-underline ${
             pathname === "/typing-game" ? "text-cyan-600 bg-cyan-50" : "text-slate-600 hover:bg-cyan-50 hover:text-cyan-600"
           }`}>打字練習</a>
+
+          {/* Board games */}
+          <a href="/board-games" className={`px-3 py-2 rounded-lg font-medium transition no-underline ${
+            pathname.startsWith("/board-games") ? "text-orange-600 bg-orange-50" : "text-slate-600 hover:bg-orange-50 hover:text-orange-600"
+          }`}>🎲 桌遊</a>
 
           <a href="/how-to-use" className={`px-3 py-2 rounded-lg font-medium transition no-underline ${
             pathname === "/how-to-use" ? "text-blue-600 bg-blue-50" : "text-slate-600 hover:bg-blue-50 hover:text-blue-600"
