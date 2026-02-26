@@ -222,6 +222,7 @@ export default function WhackAMolePage() {
           score={score} maxScore={250} gameName="打地鼠" stars={stars}
           highScore={Math.max(highScore, score)} isNewHigh={isNewHigh}
           onRestart={startGame} onBack={() => setMode("menu")}
+          trackingData={{ subject: "board-game", activityType: "game", activityId: "whack-a-mole", activityName: "打地鼠" }}
         />
       </div>
     );

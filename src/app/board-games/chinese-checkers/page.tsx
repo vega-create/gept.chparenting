@@ -408,6 +408,7 @@ export default function ChineseCheckersPage() {
           isNewHigh={isNewHigh}
           onRestart={() => startGame(diff)}
           onBack={() => setMode("menu")}
+          trackingData={{ subject: "board-game", activityType: "game", activityId: "chinese-checkers", activityName: "跳棋" }}
         />
       </div>
     );

@@ -178,6 +178,7 @@ export default function SpeedSortPage() {
           score={score} maxScore={TOTAL_ROUNDS * 30} gameName="快速排序" stars={stars}
           highScore={Math.max(highScore, score)} isNewHigh={isNewHigh}
           onRestart={startGame} onBack={() => setMode("menu")}
+          trackingData={{ subject: "board-game", activityType: "game", activityId: "speed-sort", activityName: "快速排序" }}
         />
       </div>
     );

@@ -160,6 +160,7 @@ export default function MemorySequencePage() {
           score={score} maxScore={maxScore} gameName="記憶旋律" stars={stars}
           highScore={Math.max(highScore, score)} isNewHigh={isNewHigh}
           onRestart={startGame} onBack={() => setPhase("menu")}
+          trackingData={{ subject: "board-game", activityType: "game", activityId: "memory-sequence", activityName: "記憶旋律" }}
         />
       </div>
     );

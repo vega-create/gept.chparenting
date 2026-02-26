@@ -191,6 +191,7 @@ export default function SequenceQuestPage() {
           score={score} maxScore={maxScore} gameName="數列探險" stars={stars}
           highScore={Math.max(highScore, score)} isNewHigh={isNewHigh}
           onRestart={startGame} onBack={() => setMode("menu")}
+          trackingData={{ subject: "board-game", activityType: "game", activityId: "sequence-quest", activityName: "數列探險" }}
         />
       </div>
     );

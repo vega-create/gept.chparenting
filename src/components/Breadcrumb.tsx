@@ -43,6 +43,8 @@ const ROUTE_LABELS: Record<string, string> = {
   "allowance-budget": "零用錢分配",
   "red-envelope": "紅包理財",
   "expense-tracker": "記帳小達人",
+  "schedule": "學習計畫",
+  "records": "學習紀錄",
 };
 
 interface BreadcrumbItem {

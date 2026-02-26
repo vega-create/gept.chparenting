@@ -217,6 +217,7 @@ export default function EmojiPuzzlePage() {
           score={score} maxScore={TOTAL_PUZZLES * 10} gameName="表情密碼" stars={stars}
           highScore={Math.max(highScore, score)} isNewHigh={isNewHigh}
           onRestart={startGame} onBack={() => setMode("menu")}
+          trackingData={{ subject: "board-game", activityType: "game", activityId: "emoji-puzzle", activityName: "表情密碼" }}
         />
       </div>
     );

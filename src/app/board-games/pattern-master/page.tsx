@@ -167,6 +167,7 @@ export default function PatternMasterPage() {
           score={score} maxScore={maxScore} gameName="圖案大師" stars={stars}
           highScore={Math.max(highScore, score)} isNewHigh={isNewHigh}
           onRestart={() => startGame(diff)} onBack={() => setMode("menu")}
+          trackingData={{ subject: "board-game", activityType: "game", activityId: "pattern-master", activityName: "圖案大師" }}
         />
       </div>
     );

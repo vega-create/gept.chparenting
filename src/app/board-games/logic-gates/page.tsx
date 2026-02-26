@@ -175,6 +175,7 @@ export default function LogicGatesPage() {
           score={score} maxScore={maxScore} gameName="邏輯閘門" stars={stars}
           highScore={Math.max(highScore, score)} isNewHigh={isNewHigh}
           onRestart={startGame} onBack={() => setMode("menu")}
+          trackingData={{ subject: "board-game", activityType: "game", activityId: "logic-gates", activityName: "邏輯閘門" }}
         />
       </div>
     );

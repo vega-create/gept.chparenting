@@ -205,6 +205,7 @@ export default function MazeRunnerPage() {
           score={score} maxScore={150} gameName="迷宮探險" stars={stars}
           highScore={Math.max(highScore, score)} isNewHigh={isNewHigh}
           onRestart={() => startGame(diff)} onBack={() => setMode("menu")}
+          trackingData={{ subject: "board-game", activityType: "game", activityId: "maze-runner", activityName: "迷宮探險" }}
         />
       </div>
     );

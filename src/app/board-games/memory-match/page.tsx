@@ -168,6 +168,7 @@ export default function MemoryMatchPage() {
           score={score} maxScore={150} gameName="記憶翻牌" stars={stars}
           highScore={Math.max(highScore, score)} isNewHigh={isNewHigh}
           onRestart={() => startGame(diff)} onBack={() => setMode("menu")}
+          trackingData={{ subject: "board-game", activityType: "game", activityId: "memory-match", activityName: "記憶翻牌" }}
         />
       </div>
     );

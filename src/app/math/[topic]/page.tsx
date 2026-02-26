@@ -5,6 +5,7 @@ import Link from "next/link";
 import { MATH_TOPICS } from "@/data/math/topics";
 import type { MathTopic, MathPractice } from "@/data/math/types";
 import { playCorrect, playWrong, playPerfect, playVictory } from "@/lib/sounds";
+import { trackActivity } from "@/lib/tracking";
 import { useParams } from "next/navigation";
 
 type Tab = "concepts" | "practice" | "challenge";
@@ -123,6 +124,17 @@ function PracticeTab({ topic }: { topic: MathTopic }) {
     setDone(false);
   };
 
+  // Track practice completion
+  useEffect(() => {
+    if (done) {
+      trackActivity({
+        subject: "math", activityType: "quiz", activityId: topic.id,
+        activityName: `${topic.title} 練習`, score: correct, maxScore: practices.length,
+        stars: correct >= practices.length * 0.9 ? 3 : correct >= practices.length * 0.6 ? 2 : correct >= practices.length * 0.3 ? 1 : 0,
+      }).catch(() => {});
+    }
+  }, [done]); // eslint-disable-line react-hooks/exhaustive-deps
+
   if (done) {
     const pct = Math.round((correct / practices.length) * 100);
     return (
@@ -233,6 +245,20 @@ function ChallengeTab({ topic }: { topic: MathTopic }) {
       setTimeout(nextProblem, 800);
     }
   };
+
+  // Track challenge completion
+  const challengeTracked = useRef(false);
+  useEffect(() => {
+    if (phase === "done" && !challengeTracked.current) {
+      challengeTracked.current = true;
+      trackActivity({
+        subject: "math", activityType: "challenge", activityId: topic.id,
+        activityName: `${topic.title} 限時挑戰`, score, durationSeconds: topic.challenge.timeLimit,
+        metadata: { timeLimit: topic.challenge.timeLimit },
+      }).catch(() => {});
+    }
+    if (phase === "ready") challengeTracked.current = false;
+  }, [phase]); // eslint-disable-line react-hooks/exhaustive-deps
 
   if (phase === "ready") {
     return (

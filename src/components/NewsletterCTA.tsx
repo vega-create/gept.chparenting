@@ -4,18 +4,46 @@ import { useState } from "react";
 export default function NewsletterCTA() {
   const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!email.trim()) return;
+    if (!email.trim() || submitting) return;
 
-    // Store locally for now — will integrate with Supabase later
-    const stored = JSON.parse(localStorage.getItem("newsletter_emails") || "[]");
-    stored.push({ email: email.trim(), date: new Date().toISOString() });
-    localStorage.setItem("newsletter_emails", JSON.stringify(stored));
+    setSubmitting(true);
+    setError("");
 
-    setSubmitted(true);
-    setEmail("");
+    try {
+      const res = await fetch("/api/newsletter", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email: email.trim() }),
+      });
+
+      if (res.ok || res.status === 200) {
+        setSubmitted(true);
+        setEmail("");
+      } else if (res.status === 503) {
+        // Supabase not configured — fall back to localStorage
+        const stored = JSON.parse(localStorage.getItem("newsletter_emails") || "[]");
+        stored.push({ email: email.trim(), date: new Date().toISOString() });
+        localStorage.setItem("newsletter_emails", JSON.stringify(stored));
+        setSubmitted(true);
+        setEmail("");
+      } else {
+        setError("訂閱失敗，請稍後再試");
+      }
+    } catch {
+      // Network error — fall back to localStorage
+      const stored = JSON.parse(localStorage.getItem("newsletter_emails") || "[]");
+      stored.push({ email: email.trim(), date: new Date().toISOString() });
+      localStorage.setItem("newsletter_emails", JSON.stringify(stored));
+      setSubmitted(true);
+      setEmail("");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   if (submitted) {
@@ -47,11 +75,13 @@ export default function NewsletterCTA() {
           />
           <button
             type="submit"
-            className="px-6 py-3 bg-blue-600 text-white font-semibold rounded-xl hover:bg-blue-700 transition border-0 cursor-pointer text-base"
+            disabled={submitting}
+            className="px-6 py-3 bg-blue-600 text-white font-semibold rounded-xl hover:bg-blue-700 transition border-0 cursor-pointer text-base disabled:opacity-50"
           >
-            訂閱
+            {submitting ? "處理中..." : "訂閱"}
           </button>
         </form>
+        {error && <p className="text-xs text-red-500 mt-2">{error}</p>}
         <p className="text-xs text-slate-400 mt-3">我們不會發送垃圾信件，隨時可以取消訂閱。</p>
       </div>
     </section>

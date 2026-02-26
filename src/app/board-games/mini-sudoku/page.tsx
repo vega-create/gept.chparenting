@@ -217,6 +217,7 @@ export default function MiniSudokuPage() {
           score={score} maxScore={100} gameName="迷你數獨" stars={stars}
           highScore={Math.max(highScore, score)} isNewHigh={isNewHigh}
           onRestart={() => startGame(diff)} onBack={() => setMode("menu")}
+          trackingData={{ subject: "board-game", activityType: "game", activityId: "mini-sudoku", activityName: "迷你數獨" }}
         />
       </div>
     );

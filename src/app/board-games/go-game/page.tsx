@@ -434,6 +434,7 @@ export default function GoGamePage() {
           isNewHigh={isNewHigh}
           onRestart={() => startGame(diff)}
           onBack={() => setMode("menu")}
+          trackingData={{ subject: "board-game", activityType: "game", activityId: "go-game", activityName: "圍棋" }}
         />
       </div>
     );

@@ -289,6 +289,7 @@ export default function WordSearchPage() {
           score={score} maxScore={maxScore} gameName="單字搜尋" stars={stars}
           highScore={Math.max(highScore, score)} isNewHigh={isNewHigh}
           onRestart={startGame} onBack={() => setMode("menu")}
+          trackingData={{ subject: "board-game", activityType: "game", activityId: "word-search", activityName: "單字搜尋" }}
         />
       </div>
     );

@@ -183,6 +183,7 @@ export default function CodePathPage() {
           score={score} maxScore={maxScore} gameName="程式路徑" stars={stars}
           highScore={Math.max(highScore, score)} isNewHigh={isNewHigh}
           onRestart={startGame} onBack={() => setMode("menu")}
+          trackingData={{ subject: "board-game", activityType: "game", activityId: "code-path", activityName: "程式路徑" }}
         />
       </div>
     );

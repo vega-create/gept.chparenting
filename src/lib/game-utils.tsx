@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect, useCallback, useRef } from "react";
+import { trackActivity, type TrackActivityParams } from "@/lib/tracking";
 
 /* ─── Timer Hook ─── */
 export function useTimer(running: boolean) {
@@ -86,10 +87,33 @@ export function shareResult(gameName: string, score: number, stars: number) {
 }
 
 /* ─── Game Over Screen ─── */
-export function GameOverScreen({ score, maxScore, gameName, stars, highScore, isNewHigh, onRestart, onBack }: {
+export interface TrackingData {
+  subject: TrackActivityParams["subject"];
+  activityType: TrackActivityParams["activityType"];
+  activityId: string;
+  activityName: string;
+  durationSeconds?: number;
+  metadata?: Record<string, unknown>;
+}
+
+export function GameOverScreen({ score, maxScore, gameName, stars, highScore, isNewHigh, onRestart, onBack, trackingData }: {
   score: number; maxScore: number; gameName: string; stars: number; highScore: number; isNewHigh: boolean;
   onRestart: () => void; onBack: () => void;
+  trackingData?: TrackingData;
 }) {
+  // Auto-track activity on mount (fire-and-forget)
+  const tracked = useRef(false);
+  useEffect(() => {
+    if (tracked.current || !trackingData) return;
+    tracked.current = true;
+    trackActivity({
+      ...trackingData,
+      score,
+      maxScore,
+      stars,
+    }).catch(() => {});
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+
   return (
     <div className="max-w-sm mx-auto mt-12 text-center bg-white rounded-2xl p-8 border border-slate-200 shadow-lg animate-slideUp">
       <div className="text-5xl mb-3">{"⭐".repeat(stars)}{"☆".repeat(3 - stars)}</div>

@@ -6,6 +6,7 @@ const JLPT_PREFIXES = ["/jlpt-n5", "/jlpt-n4", "/jlpt-n3", "/jlpt-n2", "/jlpt-n1
 const BOARD_GAME_PREFIX = "/board-games";
 const MATH_PREFIX = "/math";
 const FINANCE_PREFIX = "/finance";
+const DASHBOARD_PREFIX = "/dashboard";
 
 export default function MobileBottomNav() {
   const pathname = usePathname();
@@ -16,6 +17,11 @@ export default function MobileBottomNav() {
   const isBoardGameSection = pathname.startsWith(BOARD_GAME_PREFIX);
   const isMathSection = pathname.startsWith(MATH_PREFIX);
   const isFinanceSection = pathname.startsWith(FINANCE_PREFIX);
+  const isDashboardSection = pathname.startsWith(DASHBOARD_PREFIX);
+
+  if (isDashboardSection) {
+    return <DashboardNav pathname={pathname} />;
+  }
 
   if (isGeptSection) {
     return <GeptNav pathname={pathname} />;
@@ -166,6 +172,31 @@ function FinanceNav({ pathname }: { pathname: string }) {
           <a key={item.href} href={item.href}
             className={`flex flex-col items-center gap-0.5 no-underline py-1 px-3 transition ${
               item.match ? "text-purple-600" : "text-slate-400 hover:text-purple-600"
+            }`}>
+            <span className="text-lg">{item.icon}</span>
+            <span className="text-[10px] font-medium">{item.label}</span>
+          </a>
+        ))}
+      </div>
+    </nav>
+  );
+}
+
+function DashboardNav({ pathname }: { pathname: string }) {
+  const items = [
+    { href: "/", icon: "🏠", label: "首頁", match: false },
+    { href: "/dashboard", icon: "📊", label: "總覽", match: pathname === "/dashboard" },
+    { href: "/dashboard/schedule", icon: "📋", label: "計畫", match: pathname.includes("/schedule") },
+    { href: "/dashboard/records", icon: "📈", label: "紀錄", match: pathname.includes("/records") },
+  ];
+
+  return (
+    <nav className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-slate-200 safe-bottom">
+      <div className="flex justify-around items-center h-14">
+        {items.map(item => (
+          <a key={item.href} href={item.href}
+            className={`flex flex-col items-center gap-0.5 no-underline py-1 px-3 transition ${
+              item.match ? "text-blue-600" : "text-slate-400 hover:text-blue-600"
             }`}>
             <span className="text-lg">{item.icon}</span>
             <span className="text-[10px] font-medium">{item.label}</span>

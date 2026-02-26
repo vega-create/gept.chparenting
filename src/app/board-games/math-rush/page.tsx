@@ -214,6 +214,7 @@ export default function MathRushPage() {
           score={score} maxScore={300} gameName="數學衝刺" stars={stars}
           highScore={Math.max(highScore, score)} isNewHigh={isNewHigh}
           onRestart={() => startGame(diff)} onBack={() => setMode("menu")}
+          trackingData={{ subject: "board-game", activityType: "game", activityId: "math-rush", activityName: "數學衝刺" }}
         />
       </div>
     );

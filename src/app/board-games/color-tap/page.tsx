@@ -181,6 +181,7 @@ export default function ColorTapPage() {
           score={score} maxScore={200} gameName="色彩快手" stars={stars}
           highScore={Math.max(highScore, score)} isNewHigh={isNewHigh}
           onRestart={startGame} onBack={() => setMode("menu")}
+          trackingData={{ subject: "board-game", activityType: "game", activityId: "color-tap", activityName: "色彩快手" }}
         />
       </div>
     );

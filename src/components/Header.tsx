@@ -3,6 +3,7 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 import MobileHeaderBadge from "./MobileHeaderBadge";
 import HeaderAuthButton from "./HeaderAuthButton";
+import StreakBadge from "./StreakBadge";
 
 const GEPT_LEVELS = [
   { label: "初級", href: "/elementary" },
@@ -122,8 +123,9 @@ export default function Header() {
             pathname === "/about" ? "text-blue-600 bg-blue-50" : "text-slate-600 hover:bg-blue-50 hover:text-blue-600"
           }`}>關於</a>
 
-          {/* Auth button */}
-          <div className="ml-2">
+          {/* Streak + Auth button */}
+          <StreakBadge />
+          <div className="ml-1">
             <HeaderAuthButton />
           </div>
         </nav>

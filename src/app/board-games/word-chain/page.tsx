@@ -265,6 +265,7 @@ export default function WordChainPage() {
           score={score} maxScore={200} gameName="接龍大師" stars={stars}
           highScore={Math.max(highScore, score)} isNewHigh={isNewHigh}
           onRestart={startGame} onBack={() => setMode("menu")}
+          trackingData={{ subject: "board-game", activityType: "game", activityId: "word-chain", activityName: "接龍大師" }}
         />
         <div className="mt-4 bg-white rounded-2xl p-4 border border-emerald-200 shadow-sm">
           <h4 className="font-bold text-sm text-slate-600 mb-2">完成的接龍：</h4>

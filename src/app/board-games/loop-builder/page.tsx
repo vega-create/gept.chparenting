@@ -173,6 +173,7 @@ export default function LoopBuilderPage() {
           score={score} maxScore={maxScore} gameName="迴圈建造師" stars={stars}
           highScore={Math.max(highScore, score)} isNewHigh={isNewHigh}
           onRestart={startGame} onBack={() => setMode("menu")}
+          trackingData={{ subject: "board-game", activityType: "game", activityId: "loop-builder", activityName: "迴圈建造師" }}
         />
       </div>
     );
