@@ -130,8 +130,11 @@ export default function Header() {
           </div>
         </nav>
 
-        {/* Mobile: dynamic badge */}
-        <MobileHeaderBadge />
+        {/* Mobile: badge + auth */}
+        <div className="md:hidden flex items-center gap-2">
+          <MobileHeaderBadge />
+          <HeaderAuthButton />
+        </div>
       </div>
     </header>
   );
