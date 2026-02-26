@@ -41,7 +41,7 @@ export default function SchedulePicker({ onSelect, onClose, existingIds = [] }: 
                         onClick={() => { if (!isAdded) onSelect(opt); }}
                         disabled={isAdded}
                         className={`w-full text-left p-2.5 rounded-lg flex items-center gap-2 border-0 cursor-pointer transition text-sm ${
-                          isAdded ? "bg-slate-50 text-slate-300 cursor-default" : "hover:bg-blue-50 bg-transparent"
+                          isAdded ? "bg-slate-50 text-slate-300 cursor-default" : "hover:bg-rose-50 bg-transparent"
                         }`}
                       >
                         <span>{opt.icon}</span>

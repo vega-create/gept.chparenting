@@ -60,7 +60,7 @@ export default function NewsletterCTA() {
 
   return (
     <section className="max-w-4xl mx-auto px-4 py-12">
-      <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-8 text-center border border-blue-200">
+      <div className="bg-gradient-to-r from-rose-50 to-orange-50 rounded-2xl p-8 text-center border border-rose-200">
         <div className="text-3xl mb-3">📬</div>
         <h3 className="text-xl font-bold text-slate-800 mb-2">訂閱學習通知</h3>
         <p className="text-slate-600 mb-6">新功能上線時第一時間通知你！數學練習、兒童理財等全新內容已上線 🚀</p>
@@ -71,12 +71,12 @@ export default function NewsletterCTA() {
             onChange={e => setEmail(e.target.value)}
             placeholder="your@email.com"
             required
-            className="flex-1 px-4 py-3 rounded-xl border border-slate-200 text-base focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            className="flex-1 px-4 py-3 rounded-xl border border-slate-200 text-base focus:outline-none focus:ring-2 focus:ring-rose-400 focus:border-transparent"
           />
           <button
             type="submit"
             disabled={submitting}
-            className="px-6 py-3 bg-blue-600 text-white font-semibold rounded-xl hover:bg-blue-700 transition border-0 cursor-pointer text-base disabled:opacity-50"
+            className="px-6 py-3 bg-rose-400 text-white font-semibold rounded-xl hover:bg-rose-500 transition border-0 cursor-pointer text-base disabled:opacity-50"
           >
             {submitting ? "處理中..." : "訂閱"}
           </button>

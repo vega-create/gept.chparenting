@@ -12,7 +12,7 @@ export default function HeaderAuthButton() {
     return (
       <a
         href="/login"
-        className="px-4 py-2 rounded-lg bg-blue-600 text-white font-medium text-sm no-underline hover:bg-blue-700 transition"
+        className="px-4 py-2 rounded-lg bg-rose-400 text-white font-medium text-sm no-underline hover:bg-rose-500 transition"
       >
         登入
       </a>
@@ -29,7 +29,7 @@ export default function HeaderAuthButton() {
     return (
       <a
         href="/login"
-        className="px-4 py-2 rounded-lg bg-blue-600 text-white font-medium text-sm no-underline hover:bg-blue-700 transition"
+        className="px-4 py-2 rounded-lg bg-rose-400 text-white font-medium text-sm no-underline hover:bg-rose-500 transition"
       >
         登入
       </a>
@@ -48,7 +48,7 @@ export default function HeaderAuthButton() {
         {avatarUrl ? (
           <Image src={avatarUrl} alt="" width={24} height={24} className="w-6 h-6 rounded-full" />
         ) : (
-          <div className="w-6 h-6 rounded-full bg-blue-100 flex items-center justify-center text-xs font-bold text-blue-600">
+          <div className="w-6 h-6 rounded-full bg-rose-100 flex items-center justify-center text-xs font-bold text-rose-500">
             {displayName[0]}
           </div>
         )}

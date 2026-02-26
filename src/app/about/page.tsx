@@ -88,13 +88,13 @@ export default function AboutPage() {
       <div className="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm mb-6">
         <h2 className="text-xl font-bold text-slate-800 mb-5">📚 目前提供的學習工具</h2>
         <div className="space-y-3">
-          <a href="/elementary" className="flex items-center gap-4 p-4 rounded-xl bg-blue-50 border border-blue-100 hover:shadow-md transition no-underline">
+          <a href="/elementary" className="flex items-center gap-4 p-4 rounded-xl bg-rose-50 border border-rose-100 hover:shadow-md transition no-underline">
             <span className="text-3xl">📘</span>
             <div>
               <div className="font-bold text-slate-800">全民英檢 GEPT</div>
               <div className="text-sm text-slate-500">94 單元 · 8,000+ 單字 · 初級到中高級 · 聽說讀寫完整練習</div>
             </div>
-            <span className="ml-auto text-blue-400">→</span>
+            <span className="ml-auto text-rose-400">→</span>
           </a>
           <a href="/jlpt-n5" className="flex items-center gap-4 p-4 rounded-xl bg-red-50 border border-red-100 hover:shadow-md transition no-underline">
             <span className="text-3xl">🇯🇵</span>
@@ -175,13 +175,13 @@ export default function AboutPage() {
             <span className="ml-auto text-rose-400">↗</span>
           </a>
           <a href="https://chparenting.com" target="_blank" rel="noopener noreferrer"
-            className="flex items-center gap-3 p-4 rounded-xl bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 hover:shadow-md transition no-underline flex-1">
+            className="flex items-center gap-3 p-4 rounded-xl bg-gradient-to-r from-slate-50 to-indigo-50 border border-slate-200 hover:shadow-md transition no-underline flex-1">
             <span className="text-2xl">👨‍👩‍👧</span>
             <div>
               <div className="font-bold text-slate-800 text-sm">CH Parenting</div>
               <div className="text-xs text-slate-500">親子教養分享</div>
             </div>
-            <span className="ml-auto text-blue-400">↗</span>
+            <span className="ml-auto text-slate-400">↗</span>
           </a>
         </div>
       </div>

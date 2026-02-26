@@ -3,7 +3,7 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 
 const LEVELS = [
-  { prefix: "/elementary", label: "🌱 初級", href: "/elementary", color: "text-blue-600", bg: "bg-blue-50" },
+  { prefix: "/elementary", label: "🌱 初級", href: "/elementary", color: "text-rose-500", bg: "bg-rose-50" },
   { prefix: "/intermediate", label: "⚡ 中級", href: "/intermediate", color: "text-emerald-600", bg: "bg-emerald-50" },
   { prefix: "/upper-intermediate", label: "🔥 中高級", href: "/upper-intermediate", color: "text-purple-600", bg: "bg-purple-50" },
 ];

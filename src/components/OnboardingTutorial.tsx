@@ -90,7 +90,7 @@ export default function OnboardingTutorial() {
               key={i}
               onClick={() => setStep(i)}
               className={`w-2 h-2 rounded-full border-0 cursor-pointer transition-all ${
-                i === step ? "bg-blue-600 w-6" : "bg-slate-200"
+                i === step ? "bg-rose-400 w-6" : "bg-slate-200"
               }`}
             />
           ))}
@@ -108,7 +108,7 @@ export default function OnboardingTutorial() {
           )}
           <button
             onClick={handleNext}
-            className={`flex-1 py-3 rounded-xl bg-blue-600 text-white font-semibold border-0 cursor-pointer hover:bg-blue-700 transition text-sm ${
+            className={`flex-1 py-3 rounded-xl bg-rose-400 text-white font-semibold border-0 cursor-pointer hover:bg-rose-500 transition text-sm ${
               step === 0 ? "w-full" : ""
             }`}
           >
