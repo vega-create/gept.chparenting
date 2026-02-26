@@ -128,7 +128,7 @@ export default function MockTestPage() {
             ⚠️ 及格標準：60% 以上。考完才顯示成績與答案詳解。
           </div>
         </div>
-        <button onClick={startTest} className="px-10 py-4 bg-blue-600 text-white rounded-xl font-bold text-lg cursor-pointer border-none hover:bg-blue-700 transition active:scale-95">
+        <button onClick={startTest} className="px-10 py-4 bg-rose-300 text-white rounded-xl font-bold text-lg cursor-pointer border-none hover:bg-rose-400 transition active:scale-95">
           🚀 開始測驗
         </button>
         <div className="mt-4"><a href="/jlpt-n1" className="text-sm text-blue-500 hover:underline">← 返回 JLPT N1 首頁</a></div>
@@ -163,8 +163,8 @@ export default function MockTestPage() {
           </div>
           <div className="flex gap-3 justify-center flex-wrap">
             <button onClick={() => setPhase("review")} className="px-6 py-2.5 rounded-xl bg-indigo-600 text-white font-semibold text-sm cursor-pointer border-none hover:bg-indigo-700 transition">📋 查看答案</button>
-            <button onClick={startTest} className="px-6 py-2.5 rounded-xl bg-blue-600 text-white font-semibold text-sm cursor-pointer border-none hover:bg-blue-700 transition">🔄 再測一次</button>
-            <a href="/jlpt-n1" className="px-6 py-2.5 rounded-xl border-2 border-blue-600 text-blue-600 font-semibold text-sm no-underline hover:bg-blue-50 transition">← 返回</a>
+            <button onClick={startTest} className="px-6 py-2.5 rounded-xl bg-rose-300 text-white font-semibold text-sm cursor-pointer border-none hover:bg-rose-400 transition">🔄 再測一次</button>
+            <a href="/jlpt-n1" className="px-6 py-2.5 rounded-xl border-2 border-rose-300 text-rose-400 font-semibold text-sm no-underline hover:bg-rose-50 transition">← 返回</a>
           </div>
         </div>
       </div>
@@ -217,7 +217,7 @@ export default function MockTestPage() {
         })}
         <div className="text-center py-6 flex gap-3 justify-center flex-wrap">
           <button onClick={() => setPhase("result")} className="px-6 py-2.5 rounded-xl border-2 border-slate-300 text-slate-600 font-semibold text-sm cursor-pointer bg-white">← 回到成績</button>
-          <button onClick={startTest} className="px-6 py-2.5 rounded-xl bg-blue-600 text-white font-semibold text-sm cursor-pointer border-none">🔄 再測一次</button>
+          <button onClick={startTest} className="px-6 py-2.5 rounded-xl bg-rose-300 text-white font-semibold text-sm cursor-pointer border-none">🔄 再測一次</button>
         </div>
       </div>
     );
@@ -268,7 +268,7 @@ export default function MockTestPage() {
           ))}
           <div className="text-center py-4">
             <button onClick={() => setPhase("vocabulary")} disabled={lDone < listenQs.length}
-              className="px-8 py-3 rounded-xl bg-blue-600 text-white font-bold cursor-pointer border-none disabled:opacity-40 hover:bg-blue-700 transition">下一部分：語彙・文法 →</button>
+              className="px-8 py-3 rounded-xl bg-rose-300 text-white font-bold cursor-pointer border-none disabled:opacity-40 hover:bg-rose-400 transition">下一部分：語彙・文法 →</button>
             {lDone < listenQs.length && <p className="text-xs text-slate-400 mt-2">請回答所有題目後再進入下一部分。</p>}
           </div>
         </div>
@@ -290,7 +290,7 @@ export default function MockTestPage() {
           ))}
           <div className="text-center py-4">
             <button onClick={() => setPhase("reading")} disabled={vDone < vocabQs.length}
-              className="px-8 py-3 rounded-xl bg-blue-600 text-white font-bold cursor-pointer border-none disabled:opacity-40 hover:bg-blue-700 transition">下一部分：讀解 →</button>
+              className="px-8 py-3 rounded-xl bg-rose-300 text-white font-bold cursor-pointer border-none disabled:opacity-40 hover:bg-rose-400 transition">下一部分：讀解 →</button>
             {vDone < vocabQs.length && <p className="text-xs text-slate-400 mt-2">請回答所有題目後再進入下一部分。</p>}
           </div>
         </div>

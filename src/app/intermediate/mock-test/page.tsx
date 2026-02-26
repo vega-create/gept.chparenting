@@ -98,7 +98,7 @@ export default function MockTestPage() {
             ⚠️ 測驗中全英文，不顯示中文提示。考完才看成績與答案。
           </div>
         </div>
-        <button onClick={startTest} className="px-10 py-4 bg-blue-600 text-white rounded-xl font-bold text-lg cursor-pointer border-none hover:bg-blue-700 transition active:scale-95">
+        <button onClick={startTest} className="px-10 py-4 bg-rose-300 text-white rounded-xl font-bold text-lg cursor-pointer border-none hover:bg-rose-400 transition active:scale-95">
           🚀 Start Test
         </button>
         <div className="mt-4"><a href="/intermediate" className="text-sm text-blue-500 hover:underline">← Back to Intermediate</a></div>
@@ -133,8 +133,8 @@ export default function MockTestPage() {
           </div>
           <div className="flex gap-3 justify-center flex-wrap">
             <button onClick={() => setPhase("review")} className="px-6 py-2.5 rounded-xl bg-indigo-600 text-white font-semibold text-sm cursor-pointer border-none hover:bg-indigo-700 transition">📋 Review Answers</button>
-            <button onClick={startTest} className="px-6 py-2.5 rounded-xl bg-blue-600 text-white font-semibold text-sm cursor-pointer border-none hover:bg-blue-700 transition">🔄 Try Again</button>
-            <a href="/intermediate" className="px-6 py-2.5 rounded-xl border-2 border-blue-600 text-blue-600 font-semibold text-sm no-underline hover:bg-blue-50 transition">← Back</a>
+            <button onClick={startTest} className="px-6 py-2.5 rounded-xl bg-rose-300 text-white font-semibold text-sm cursor-pointer border-none hover:bg-rose-400 transition">🔄 Try Again</button>
+            <a href="/intermediate" className="px-6 py-2.5 rounded-xl border-2 border-rose-300 text-rose-400 font-semibold text-sm no-underline hover:bg-rose-50 transition">← Back</a>
           </div>
         </div>
       </div>
@@ -184,7 +184,7 @@ export default function MockTestPage() {
         })}
         <div className="text-center py-6 flex gap-3 justify-center flex-wrap">
           <button onClick={() => setPhase("result")} className="px-6 py-2.5 rounded-xl border-2 border-slate-300 text-slate-600 font-semibold text-sm cursor-pointer bg-white">← Back to Score</button>
-          <button onClick={startTest} className="px-6 py-2.5 rounded-xl bg-blue-600 text-white font-semibold text-sm cursor-pointer border-none">🔄 Try Again</button>
+          <button onClick={startTest} className="px-6 py-2.5 rounded-xl bg-rose-300 text-white font-semibold text-sm cursor-pointer border-none">🔄 Try Again</button>
         </div>
       </div>
     );
@@ -236,7 +236,7 @@ export default function MockTestPage() {
           ))}
           <div className="text-center py-4">
             <button onClick={() => setPhase("reading")} disabled={lDone < listenQs.length}
-              className="px-8 py-3 rounded-xl bg-blue-600 text-white font-bold cursor-pointer border-none disabled:opacity-40 hover:bg-blue-700 transition">Next: Reading →</button>
+              className="px-8 py-3 rounded-xl bg-rose-300 text-white font-bold cursor-pointer border-none disabled:opacity-40 hover:bg-rose-400 transition">Next: Reading →</button>
             {lDone < listenQs.length && <p className="text-xs text-slate-400 mt-2">Answer all questions to continue.</p>}
           </div>
         </div>

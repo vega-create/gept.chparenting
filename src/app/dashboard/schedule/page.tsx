@@ -31,7 +31,7 @@ export default function SchedulePage() {
         <div className="text-5xl mb-3">🔒</div>
         <h2 className="text-xl font-bold text-slate-800 mb-2">請先登入</h2>
         <p className="text-slate-500 mb-4">登入後就可以設定學習計畫</p>
-        <a href="/login" className="px-6 py-3 bg-blue-600 text-white rounded-xl font-bold no-underline hover:bg-blue-700 transition">登入</a>
+        <a href="/login" className="px-6 py-3 bg-rose-300 text-white rounded-xl font-bold no-underline hover:bg-rose-400 transition">登入</a>
       </div>
     );
   }

@@ -52,7 +52,7 @@ export default function NeedsVsWants() {
         <h2 className="text-2xl font-black text-slate-800 mb-2">分類完成！</h2>
         <div className="text-4xl font-black text-amber-500 my-3">{score} / {items.length}</div>
         <div className="text-sm text-slate-500 mb-4">正確率 {pct}%</div>
-        <button onClick={restart} className="px-6 py-2.5 rounded-xl bg-blue-500 text-white font-bold cursor-pointer border-none hover:bg-blue-600 transition">🔄 再玩一次</button>
+        <button onClick={restart} className="px-6 py-2.5 rounded-xl bg-rose-300 text-white font-bold cursor-pointer border-none hover:bg-rose-400 transition">🔄 再玩一次</button>
       </div>
     );
   }
@@ -88,7 +88,7 @@ export default function NeedsVsWants() {
             {feedback.explanation}
           </div>
           <button onClick={handleNext}
-            className="w-full py-3 rounded-xl bg-blue-500 text-white font-bold cursor-pointer border-none hover:bg-blue-600 transition">
+            className="w-full py-3 rounded-xl bg-rose-300 text-white font-bold cursor-pointer border-none hover:bg-rose-400 transition">
             {idx + 1 >= items.length ? "看結果 →" : "下一題 →"}
           </button>
         </div>

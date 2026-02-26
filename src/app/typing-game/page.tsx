@@ -282,7 +282,7 @@ export default function TypingGamePage() {
       <div className="flex justify-center gap-3 mb-4">
         <button onClick={() => setLang("en")}
           className={`px-5 py-2.5 rounded-xl text-sm font-semibold border transition cursor-pointer ${
-            lang === "en" ? "bg-blue-500 text-white border-blue-500" : "bg-white border-slate-200 text-slate-600"
+            lang === "en" ? "text-rose-400 border-rose-300" : "bg-white border-slate-200 text-slate-600"
           }`}>🔤 English</button>
         <button onClick={() => setLang("zh")}
           className={`px-5 py-2.5 rounded-xl text-sm font-semibold border transition cursor-pointer ${
@@ -359,7 +359,7 @@ export default function TypingGamePage() {
               選單
             </button>
             <button onClick={() => startGame(mode)}
-              className="px-6 py-3 rounded-xl bg-blue-600 text-white font-semibold cursor-pointer border-none transition hover:bg-blue-700">
+              className="px-6 py-3 rounded-xl bg-rose-300 text-white font-semibold cursor-pointer border-none transition hover:bg-rose-400">
               再來一次
             </button>
           </div>

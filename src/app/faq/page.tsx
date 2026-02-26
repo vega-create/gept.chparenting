@@ -8,7 +8,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "需要註冊才能使用嗎？",
-    a: "目前所有學習功能都不需要註冊，直接開始學習就好！未來會推出帳號系統，讓你可以追蹤學習進度和紀錄成績。",
+    a: "所有學習功能都不需要註冊，直接開始學習就好！如果想追蹤學習進度和紀錄成績，可以點右上角的「登入」按鈕，用 Google 帳號快速登入即可。",
   },
   {
     q: "適合什麼年齡的學生？",
@@ -104,7 +104,7 @@ export default function FAQPage() {
       <div className="mt-10 text-center">
         <p className="text-slate-500 mb-3">還有其他問題？</p>
         <a href="https://aimommywisdom.com" target="_blank" rel="noopener noreferrer"
-          className="inline-block px-6 py-2.5 bg-blue-600 text-white rounded-xl font-semibold text-sm hover:bg-blue-700 transition no-underline">
+          className="inline-block px-6 py-2.5 bg-rose-100 border border-rose-300 text-rose-500 rounded-xl font-semibold text-sm hover:bg-rose-200 transition no-underline">
           聯繫我們 →
         </a>
       </div>

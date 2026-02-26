@@ -168,7 +168,7 @@ export default function HowToUsePage() {
 
       {/* CTA */}
       <div className="text-center mt-10">
-        <a href="/elementary" className="inline-block px-8 py-3 bg-blue-600 text-white rounded-xl font-bold text-lg hover:bg-blue-700 transition no-underline">
+        <a href="/elementary" className="inline-block px-8 py-3 bg-rose-300 text-white rounded-xl font-bold text-lg hover:bg-rose-400 transition no-underline">
           開始學習 →
         </a>
       </div>

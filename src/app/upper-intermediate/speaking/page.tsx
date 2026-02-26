@@ -218,7 +218,7 @@ export default function SpeakingPage() {
           </div>
 
           <div className="flex gap-3 justify-center flex-wrap">
-            <button onClick={() => startMode(mode)} className="px-6 py-2.5 rounded-xl bg-blue-600 text-white font-semibold text-sm cursor-pointer border-none">🔄 再練一次</button>
+            <button onClick={() => startMode(mode)} className="px-6 py-2.5 rounded-xl bg-rose-300 text-white font-semibold text-sm cursor-pointer border-none">🔄 再練一次</button>
             <button onClick={() => setMode("menu")} className="px-6 py-2.5 rounded-xl border-2 border-slate-300 text-slate-600 font-semibold text-sm cursor-pointer bg-white">← 選其他模式</button>
           </div>
         </div>
@@ -282,7 +282,7 @@ export default function SpeakingPage() {
             🔄 再唸一次
           </button>
           <button onClick={next}
-            className="px-5 py-2.5 rounded-xl bg-blue-600 text-white font-semibold text-sm cursor-pointer border-none hover:bg-blue-700 transition">
+            className="px-5 py-2.5 rounded-xl bg-rose-300 text-white font-semibold text-sm cursor-pointer border-none hover:bg-rose-400 transition">
             {idx + 1 >= items.length ? "看結果 →" : "下一題 →"}
           </button>
         </div>
