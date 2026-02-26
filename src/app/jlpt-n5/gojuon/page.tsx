@@ -80,6 +80,9 @@ export default function GojuonPage() {
   const [score, setScore] = useState(0);
   const [options, setOptions] = useState<string[]>([]);
 
+  // Stop speech when leaving page
+  useEffect(() => { return () => { if (typeof window !== "undefined" && "speechSynthesis" in window) window.speechSynthesis.cancel(); }; }, []);
+
   const startQuiz = (type: QuizType) => {
     setQuizType(type);
     const items = shuffle(ALL_KANA).slice(0, 20);

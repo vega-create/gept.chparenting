@@ -48,6 +48,9 @@ export default function MockTestPage() {
     return () => clearInterval(iv);
   }, [started, phase]);
 
+  // Stop speech when leaving page
+  useEffect(() => { return () => { if (typeof window !== "undefined" && "speechSynthesis" in window) window.speechSynthesis.cancel(); }; }, []);
+
   const fmt = (s: number) => `${Math.floor(s / 60).toString().padStart(2, "0")}:${(s % 60).toString().padStart(2, "0")}`;
   const setAns = (key: string, val: number) => setAnswers(a => ({ ...a, [key]: val }));
 

@@ -134,6 +134,9 @@ export default function GamePage() {
     }
   }, []);
 
+  // Stop speech when leaving page
+  useEffect(() => { return () => { if (typeof window !== "undefined" && "speechSynthesis" in window) window.speechSynthesis.cancel(); }; }, []);
+
   const startGame = (m: GameMode) => {
     setMode(m); setScore(0); setCombo(0); setQi(0); setSel(null); setShow(false); setInput(""); setHint(false);
     setRaResult(null); setMatchedWords([]); setRecording(false);

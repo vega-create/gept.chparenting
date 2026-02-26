@@ -105,6 +105,9 @@ export default function GamePage() {
   const [sentArr, setSentArr] = useState<any[]>([]);
   const [sentRem, setSentRem] = useState<any[]>([]);
 
+  // Stop speech when leaving page
+  useEffect(() => { return () => { if (typeof window !== "undefined" && "speechSynthesis" in window) window.speechSynthesis.cancel(); }; }, []);
+
   const startGame = (m: GameMode) => {
     setMode(m); setScore(0); setCombo(0); setQi(0); setSel(null); setShow(false);
 

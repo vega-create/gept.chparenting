@@ -70,6 +70,9 @@ export default function SpeakingPage() {
     }
   }, []);
 
+  // Stop speech when leaving page
+  useEffect(() => { return () => { if (typeof window !== "undefined" && "speechSynthesis" in window) window.speechSynthesis.cancel(); }; }, []);
+
   const startMode = (m: Mode) => {
     setMode(m); setIdx(0); setResult(null); setAttempts(0);
     setTotalScore(0); setCompleted(0); setBestScores({});
