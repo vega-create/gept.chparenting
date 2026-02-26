@@ -78,21 +78,17 @@ function getGoalPositions(region: "top" | "bot"): Pos[] {
 }
 
 /* ─── Adjacency: 6 hex neighbors ─── */
-// Even rows: neighbors are (r-1,c-1),(r-1,c),(r,c-1),(r,c+1),(r+1,c-1),(r+1,c)
-// Odd rows: neighbors are (r-1,c),(r-1,c+1),(r,c-1),(r,c+1),(r+1,c),(r+1,c+1)
-// But since our grid is rectangular with offsets, we use a simpler model:
-// All cells can connect to their 6 neighbors in a hex-like grid.
-// For the star board, adjacency depends on row width changes.
-// We'll use direct step and jump logic per row.
+// Offset hex grid: even/odd rows have different column offsets for diagonal neighbors.
+// Direction indices: 0=upper-left, 1=upper-right, 2=left, 3=right, 4=lower-left, 5=lower-right
+const EVEN_DIRS = [[-1, -1], [-1, 0], [0, -1], [0, 1], [1, -1], [1, 0]];
+const ODD_DIRS  = [[-1, 0], [-1, 1], [0, -1], [0, 1], [1, 0], [1, 1]];
+
+function getDirs(r: number): number[][] {
+  return r % 2 === 0 ? EVEN_DIRS : ODD_DIRS;
+}
 
 function getNeighbors(r: number, c: number): Pos[] {
-  // For hex grid with offset coordinates (odd-r offset):
-  // We treat even rows as shifted left, odd rows as normal
-  const isEven = r % 2 === 0;
-  const dirs = isEven
-    ? [[-1, -1], [-1, 0], [0, -1], [0, 1], [1, -1], [1, 0]]
-    : [[-1, 0], [-1, 1], [0, -1], [0, 1], [1, 0], [1, 1]];
-  return dirs.map(([dr, dc]) => ({ r: r + dr, c: c + dc }));
+  return getDirs(r).map(([dr, dc]) => ({ r: r + dr, c: c + dc }));
 }
 
 /* ─── Move finding ─── */
@@ -106,13 +102,17 @@ function findJumps(r: number, c: number, board: Cell[][]): Pos[] {
   visited.add(posKey(r, c));
 
   function dfs(cr: number, cc: number) {
-    const neighbors = getNeighbors(cr, cc);
-    for (const n of neighbors) {
-      if (!isValid(n.r, n.c, board)) continue;
-      if (board[n.r][n.c] !== "player" && board[n.r][n.c] !== "ai") continue;
-      // There's a piece at n, check if we can jump over it
-      const jr = n.r + (n.r - cr);
-      const jc = n.c + (n.c - cc);
+    const dirs = getDirs(cr);
+    for (let d = 0; d < 6; d++) {
+      const nr = cr + dirs[d][0];
+      const nc = cc + dirs[d][1];
+      if (!isValid(nr, nc, board)) continue;
+      if (board[nr][nc] !== "player" && board[nr][nc] !== "ai") continue;
+      // There's a piece at (nr,nc) — jump over it using the SAME direction
+      // but with the landing row's parity offset so the jump stays straight
+      const nDirs = getDirs(nr);
+      const jr = nr + nDirs[d][0];
+      const jc = nc + nDirs[d][1];
       if (!isValid(jr, jc, board)) continue;
       if (board[jr][jc] !== "empty") continue;
       const key = posKey(jr, jc);

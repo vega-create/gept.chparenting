@@ -7,6 +7,10 @@ export default function Footer() {
           <a href="/intermediate" className="hover:text-rose-400 transition">中級英檢</a>
           <a href="/upper-intermediate" className="hover:text-rose-400 transition">中高級英檢</a>
           <a href="/jlpt-n5" className="hover:text-red-500 transition">JLPT N5</a>
+          <a href="/jlpt-n4" className="hover:text-red-500 transition">JLPT N4</a>
+          <a href="/jlpt-n3" className="hover:text-red-500 transition">JLPT N3</a>
+          <a href="/jlpt-n2" className="hover:text-red-500 transition">JLPT N2</a>
+          <a href="/jlpt-n1" className="hover:text-red-500 transition">JLPT N1</a>
           <a href="/typing-game" className="hover:text-rose-400 transition">打字練習</a>
           <a href="/how-to-use" className="hover:text-rose-400 transition">使用說明</a>
           <a href="/faq" className="hover:text-rose-400 transition">常見問題</a>
