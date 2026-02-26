@@ -154,7 +154,7 @@ export const unit3: Unit = {
     { s: "There ___ some milk in the glass.", opts: ["are", "is", "have", "has"], ans: 1 },
     { s: "How ___ water do you drink every day?", opts: ["many", "much", "often", "long"], ans: 1 },
     { s: "I am hungry. I want ___ to eat.", opts: ["anything", "nothing", "something", "everything"], ans: 2 },
-    { s: "Would you like ___ coffee?", opts: ["any", "some", "many", "much"], ans: 1 },
+    { s: "There aren't ___ eggs in the fridge.", opts: ["any", "some", "many", "much"], ans: 0 },
     { s: "She enjoys ___ cakes on weekends.", opts: ["bake", "bakes", "baking", "to baking"], ans: 2 },
     { s: "This soup is too ___. I need more water.", opts: ["sweet", "salty", "sour", "fresh"], ans: 1 }
   ],
