@@ -255,7 +255,7 @@ export const uiunit35: Unit = {
     { s: "_____ vehicles use sensors and AI to navigate without human drivers.", opts: ["Autonomous", "Hybrid", "Diesel", "Manual"], ans: 0 },
       { s: "Renewable energy sources are increasingly ___ with fossil fuels.", opts: ["competitive", "compatible", "compliant", "comprehensive"], ans: 0 },
     { s: "The government plans to ___ out coal-fired power plants by 2035.", opts: ["phase", "face", "pace", "place"], ans: 0 },
-    { s: "Nuclear ___ remains a controversial waste disposal issue.", opts: ["fission", "fusion", "waste", "power"], ans: 2 },
+    { s: "The safe storage of nuclear ___ remains a controversial disposal challenge.", opts: ["fission", "fusion", "waste", "power"], ans: 2 },
     { s: "Energy ___ is essential for making intermittent sources reliable.", opts: ["storage", "shortage", "surplus", "subsidy"], ans: 0 },
     { s: "The ___ to renewable energy requires significant infrastructure investment.", opts: ["transition", "transaction", "transmission", "translation"], ans: 0 },
   ],

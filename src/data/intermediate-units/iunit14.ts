@@ -81,7 +81,7 @@ export const iunit14: Unit = {
     { s: "Prices _____ steadily for the past six months.", opts: ["rise", "rose", "have been rising", "are rising"], ans: 2 },
     { s: "_____ inflation, many families are struggling financially.", opts: ["Because", "Due to", "Since", "Although"], ans: 1 },
     { s: "If I _____ more money, I would invest in real estate.", opts: ["have", "had", "will have", "having"], ans: 1 },
-    { s: "The more you save, the _____ interest you earn.", opts: ["much", "most", "many", "more"], ans: 3 },
+    { s: "By saving regularly, you earn _____ interest over time.", opts: ["much", "most", "many", "more"], ans: 3 },
     { s: "The company filed for _____ after years of losses.", opts: ["merger", "bankruptcy", "dividend", "surplus"], ans: 1 },
     { s: "You should _____ your investments to reduce risk.", opts: ["accumulate", "speculate", "diversify", "depreciate"], ans: 2 },
     { s: "The stock market has been very _____ recently.", opts: ["profitable", "volatile", "affordable", "solvent"], ans: 1 },

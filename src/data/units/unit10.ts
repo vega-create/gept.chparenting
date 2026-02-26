@@ -154,7 +154,7 @@ export const unit10: Unit = {
     { s: "I have a stomachache. I ___ eat too much.", opts: ["should", "shouldn't", "can", "must"], ans: 1 },
     { s: "She ___ a terrible headache yesterday.", opts: ["have", "has", "had", "having"], ans: 2 },
     { s: "You look ___. Are you sick?", opts: ["good", "well", "terrible", "fine"], ans: 2 },
-    { s: "He ___ always washes his hands before eating.", opts: ["never", "sometimes", "always", "seldom"], ans: 2 },
+    { s: "He ___ washes his hands before eating.", opts: ["never", "sometimes", "always", "seldom"], ans: 2 },
     { s: "The medicine will make you ___ better.", opts: ["feels", "feel", "felt", "feeling"], ans: 1 }
   ],
 };

@@ -224,7 +224,7 @@ export const uiunit23: Unit = {
     { s: "If the algorithm _____ not biased, users would see more diverse content.", opts: ["is", "was", "were", "be"], ans: 2 },
     { s: "Even though the story was debunked, many people _____ believe it.", opts: ["still", "yet", "already", "never"], ans: 0 },
     { s: "_____ technology creates realistic but fabricated videos.", opts: ["Deepfake", "Blockchain", "Cloud", "Quantum"], ans: 0 },
-    { s: "The _____ economy monetizes human attention and focus.", opts: ["attention", "sharing", "gig", "circular"], ans: 0 },
+    { s: "The _____ economy monetizes human focus and cognitive resources.", opts: ["attention", "sharing", "gig", "circular"], ans: 0 },
     { s: "Media _____ teaches people to critically analyze information.", opts: ["literacy", "literature", "liberal", "literal"], ans: 0 },
     { s: "Not only did the platform fail to act, _____ it also profited from the content.", opts: ["and", "so", "but", "or"], ans: 2 },
     { s: "The article was criticized for its ___ toward the ruling party.", opts: ["bias", "basis", "bliss", "bonus"], ans: 0 },

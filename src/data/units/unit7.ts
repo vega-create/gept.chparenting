@@ -150,7 +150,7 @@ export const unit7: Unit = {
     { s: "These shoes are ___ sale.", opts: ["in", "at", "on", "for"], ans: 2 },
     { s: "I can't ___ that expensive bag.", opts: ["pay", "cost", "afford", "spend"], ans: 2 },
     { s: "She ___ 200 dollars on lunch.", opts: ["spent", "cost", "paid", "bought"], ans: 0 },
-    { s: "Do you need a ___? — No, I brought my own bag.", opts: ["cart", "basket", "bag", "list"], ans: 2 },
+    { s: "Do you need a ___? — No, I brought my own.", opts: ["cart", "basket", "bag", "list"], ans: 2 },
     { s: "Sorry, this item is ___.", opts: ["sold out", "on sale", "available", "free"], ans: 0 },
     { s: "This dress is ___ expensive than that one.", opts: ["much", "more", "most", "very"], ans: 1 },
     { s: "I ___ to buy a new phone.", opts: ["want", "wants", "wanting", "wanted"], ans: 0 },

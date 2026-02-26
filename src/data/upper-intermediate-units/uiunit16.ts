@@ -163,7 +163,7 @@ export const uiunit16: Unit = {
     {"s": "The evidence is compelling; _____, more research is needed.", "opts": ["therefore", "nevertheless", "consequently", "furthermore"], "ans": 1},
     {"s": "What researchers discovered _____ changed our understanding entirely.", "opts": ["have", "has", "having", "had"], "ans": 1},
       { s: "The telescope detected a faint signal from a ___ 12 billion light-years away.", opts: ["galaxy", "gallery", "gateway", "garrison"], ans: 0 },
-    { s: "The spacecraft achieved ___ velocity to escape Earth's gravitational pull.", opts: ["escape", "exchange", "exclusive", "executive"], ans: 0 },
+    { s: "The spacecraft achieved ___ velocity to leave Earth's gravitational pull.", opts: ["escape", "exchange", "exclusive", "executive"], ans: 0 },
     { s: "The ___ of water on Mars suggests the planet may have once supported life.", opts: ["presence", "pressure", "process", "promise"], ans: 0 },
     { s: "The satellite was placed in ___ orbit around the Earth.", opts: ["geostationary", "geographical", "geological", "geometric"], ans: 0 },
     { s: "Space exploration has yielded numerous technological ___ for everyday life.", opts: ["spinoffs", "splinters", "sponsors", "spectrums"], ans: 0 },

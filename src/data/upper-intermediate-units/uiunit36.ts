@@ -251,7 +251,7 @@ export const uiunit36: Unit = {
     { s: "The _____ houses passengers and cargo inside an aircraft.", opts: ["fuselage", "cockpit", "hangar", "runway"], ans: 0 },
     { s: "_____ aviation fuel is made from waste oils and reduces emissions.", opts: ["Sustainable", "Traditional", "Fossil", "Synthetic"], ans: 0 },
     { s: "High-speed _____ connects major cities in under two hours.", opts: ["rail", "freight", "cargo", "shipping"], ans: 0 },
-    { s: "_____ zones restrict vehicle access to improve pedestrian safety.", opts: ["Pedestrian", "Loading", "Parking", "Construction"], ans: 0 },
+    { s: "_____ zones restrict vehicle access to improve safety for walkers.", opts: ["Pedestrian", "Loading", "Parking", "Construction"], ans: 0 },
     { s: "_____ vehicles combine an engine with an electric motor.", opts: ["Hybrid", "Diesel", "Manual", "Autonomous"], ans: 0 },
       { s: "The ___ industry is investing heavily in sustainable fuel alternatives.", opts: ["aviation", "avocation", "aversion", "assertion"], ans: 0 },
     { s: "The aircraft's ___ systems ensure safe navigation in all conditions.", opts: ["autonomous", "anonymous", "ambiguous", "analogous"], ans: 0 },
