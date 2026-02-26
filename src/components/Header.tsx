@@ -30,8 +30,8 @@ export default function Header() {
         {/* Brand */}
         <a href="/" className="flex items-center gap-2 no-underline shrink-0">
           <span className="text-2xl">📚</span>
-          <span className="text-lg font-bold text-rose-500 hidden sm:inline">親子多元學習平台</span>
-          <span className="text-lg font-bold text-rose-500 sm:hidden">親子學習</span>
+          <span className="text-lg font-bold text-pink-500 hidden sm:inline">親子多元學習平台</span>
+          <span className="text-lg font-bold text-pink-500 sm:hidden">親子學習</span>
         </a>
 
         {/* Desktop nav */}
@@ -44,8 +44,8 @@ export default function Header() {
             <button
               className={`px-3 py-2 rounded-lg font-medium transition flex items-center gap-1 bg-transparent border-0 cursor-pointer ${
                 pathname.startsWith("/elementary") || pathname.startsWith("/intermediate") || pathname.startsWith("/upper-intermediate")
-                  ? "text-rose-500 bg-rose-50"
-                  : "text-slate-600 hover:bg-rose-50 hover:text-rose-500"
+                  ? "text-pink-500 bg-pink-50"
+                  : "text-slate-600 hover:bg-pink-50 hover:text-pink-500"
               }`}
             >
               全民英檢 <span className="text-xs">▾</span>
@@ -55,7 +55,7 @@ export default function Header() {
                 {GEPT_LEVELS.map(l => (
                   <a key={l.href} href={l.href}
                     className={`block px-4 py-2.5 text-sm font-medium no-underline transition ${
-                      pathname.startsWith(l.href) ? "text-rose-500 bg-rose-50" : "text-slate-600 hover:bg-slate-50"
+                      pathname.startsWith(l.href) ? "text-pink-500 bg-pink-50" : "text-slate-600 hover:bg-slate-50"
                     }`}>
                     {l.label}
                   </a>
@@ -114,13 +114,13 @@ export default function Header() {
           }`}>💰 理財</a>
 
           <a href="/how-to-use" className={`px-3 py-2 rounded-lg font-medium transition no-underline ${
-            pathname === "/how-to-use" ? "text-rose-500 bg-rose-50" : "text-slate-600 hover:bg-rose-50 hover:text-rose-500"
+            pathname === "/how-to-use" ? "text-pink-500 bg-pink-50" : "text-slate-600 hover:bg-pink-50 hover:text-pink-500"
           }`}>使用說明</a>
           <a href="/faq" className={`px-3 py-2 rounded-lg font-medium transition no-underline ${
-            pathname === "/faq" ? "text-rose-500 bg-rose-50" : "text-slate-600 hover:bg-rose-50 hover:text-rose-500"
+            pathname === "/faq" ? "text-pink-500 bg-pink-50" : "text-slate-600 hover:bg-pink-50 hover:text-pink-500"
           }`}>常見問題</a>
           <a href="/about" className={`px-3 py-2 rounded-lg font-medium transition no-underline ${
-            pathname === "/about" ? "text-rose-500 bg-rose-50" : "text-slate-600 hover:bg-rose-50 hover:text-rose-500"
+            pathname === "/about" ? "text-pink-500 bg-pink-50" : "text-slate-600 hover:bg-pink-50 hover:text-pink-500"
           }`}>關於</a>
 
           {/* Streak + Auth button */}

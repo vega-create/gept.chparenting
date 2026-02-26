@@ -28,14 +28,14 @@ export default function AboutPage() {
       <div className="text-center mb-10">
         <div className="text-5xl mb-3">🌸</div>
         <h1 className="text-3xl font-black text-slate-800 mb-2">關於這個平台</h1>
-        <p className="text-rose-400 font-medium">一位媽媽的小小心願</p>
+        <p className="text-pink-400 font-medium">一位媽媽的小小心願</p>
       </div>
 
       {/* ─── Origin Story ─── */}
-      <div className="bg-gradient-to-b from-rose-50/60 to-orange-50/40 rounded-2xl p-8 border border-rose-200 shadow-sm mb-6">
+      <div className="bg-gradient-to-b from-pink-50/60 to-orange-50/40 rounded-2xl p-8 border border-pink-200 shadow-sm mb-6">
         <h2 className="text-xl font-bold text-slate-800 mb-5">💕 為什麼做這個網站？</h2>
 
-        <div className="border-l-3 border-rose-300 pl-5 mb-5">
+        <div className="border-l-3 border-pink-300 pl-5 mb-5">
           <p className="text-slate-600 leading-8 mb-4">
             身為兩個孩子的媽媽，平常身兼數職外，對小孩的教育一直很關心。
           </p>
@@ -58,7 +58,7 @@ export default function AboutPage() {
           </p>
           <p className="text-slate-700 leading-8 font-medium">
             如果這些工具能幫到更多的孩子，讓他們在家也能快樂地學習，那就太好了。
-            所以，我決定讓這個平台<strong className="text-rose-500">完全免費</strong>。
+            所以，我決定讓這個平台<strong className="text-pink-500">完全免費</strong>。
           </p>
           <p className="text-slate-700 leading-8 font-medium">
             不管大人小孩，只要有興趣都可以一起學習。
@@ -88,13 +88,13 @@ export default function AboutPage() {
       <div className="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm mb-6">
         <h2 className="text-xl font-bold text-slate-800 mb-5">📚 目前提供的學習工具</h2>
         <div className="space-y-3">
-          <a href="/elementary" className="flex items-center gap-4 p-4 rounded-xl bg-rose-50 border border-rose-100 hover:shadow-md transition no-underline">
+          <a href="/elementary" className="flex items-center gap-4 p-4 rounded-xl bg-pink-50 border border-pink-100 hover:shadow-md transition no-underline">
             <span className="text-3xl">📘</span>
             <div>
               <div className="font-bold text-slate-800">全民英檢 GEPT</div>
               <div className="text-sm text-slate-500">94 單元 · 8,000+ 單字 · 初級到中高級 · 聽說讀寫完整練習</div>
             </div>
-            <span className="ml-auto text-rose-400">→</span>
+            <span className="ml-auto text-pink-400">→</span>
           </a>
           <a href="/jlpt-n5" className="flex items-center gap-4 p-4 rounded-xl bg-red-50 border border-red-100 hover:shadow-md transition no-underline">
             <span className="text-3xl">🇯🇵</span>
@@ -133,7 +133,7 @@ export default function AboutPage() {
       <div className="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm mb-6">
         <h2 className="text-xl font-bold text-slate-800 mb-4">💡 使用小提示</h2>
         <div className="space-y-3 text-sm">
-          <div className="flex items-start gap-3 p-4 rounded-xl bg-rose-50 border border-rose-100">
+          <div className="flex items-start gap-3 p-4 rounded-xl bg-pink-50 border border-pink-100">
             <span className="text-lg">👧</span>
             <div>
               <p className="font-medium text-slate-700 mb-1">每位小朋友請用自己的 Google 帳號登入</p>
@@ -166,13 +166,13 @@ export default function AboutPage() {
         </p>
         <div className="flex flex-col sm:flex-row gap-3">
           <a href="https://aimommywisdom.com" target="_blank" rel="noopener noreferrer"
-            className="flex items-center gap-3 p-4 rounded-xl bg-gradient-to-r from-rose-50 to-orange-50 border border-rose-200 hover:shadow-md transition no-underline flex-1">
+            className="flex items-center gap-3 p-4 rounded-xl bg-gradient-to-r from-pink-50 to-orange-50 border border-pink-200 hover:shadow-md transition no-underline flex-1">
             <span className="text-2xl">👶</span>
             <div>
               <div className="font-bold text-slate-800 text-sm">AI Mommy Wisdom</div>
               <div className="text-xs text-slate-500">智慧媽咪官網</div>
             </div>
-            <span className="ml-auto text-rose-400">↗</span>
+            <span className="ml-auto text-pink-400">↗</span>
           </a>
           <a href="https://chparenting.com" target="_blank" rel="noopener noreferrer"
             className="flex items-center gap-3 p-4 rounded-xl bg-gradient-to-r from-slate-50 to-indigo-50 border border-slate-200 hover:shadow-md transition no-underline flex-1">
@@ -187,7 +187,7 @@ export default function AboutPage() {
       </div>
 
       {/* ─── CTA ─── */}
-      <div className="bg-gradient-to-r from-rose-50 to-orange-50 rounded-2xl p-8 border border-rose-200 text-center">
+      <div className="bg-gradient-to-r from-pink-50 to-orange-50 rounded-2xl p-8 border border-pink-200 text-center">
         <div className="text-3xl mb-3">💕</div>
         <p className="text-slate-700 leading-8 mb-4">
           如果這個網站對你的孩子有一點點幫助，<br />
@@ -197,7 +197,7 @@ export default function AboutPage() {
           有任何建議、回饋，或只是想說聲加油，都歡迎聯繫我們 ❤️
         </p>
         <a href="https://aimommywisdom.com" target="_blank" rel="noopener noreferrer"
-          className="inline-block px-6 py-2.5 bg-rose-400 text-white rounded-xl font-semibold text-sm hover:bg-rose-500 transition no-underline">
+          className="inline-block px-6 py-2.5 bg-pink-400 text-white rounded-xl font-semibold text-sm hover:bg-pink-500 transition no-underline">
           前往官網聯繫 →
         </a>
       </div>

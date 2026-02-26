@@ -30,7 +30,7 @@ export default function LoginPage() {
   if (loading) {
     return (
       <div className="min-h-[60vh] flex items-center justify-center">
-        <div className="text-rose-300">載入中...</div>
+        <div className="text-pink-300">載入中...</div>
       </div>
     );
   }
@@ -46,11 +46,11 @@ export default function LoginPage() {
         </div>
 
         {/* Login Card */}
-        <div className="bg-gradient-to-b from-rose-50/60 to-orange-50/40 rounded-2xl p-8 border border-rose-200 shadow-sm">
+        <div className="bg-gradient-to-b from-pink-50/60 to-orange-50/40 rounded-2xl p-8 border border-pink-200 shadow-sm">
           {configured ? (
             <button
               onClick={handleGoogleLogin}
-              className="w-full flex items-center justify-center gap-3 px-4 py-3 bg-white border-2 border-rose-200 rounded-xl font-semibold text-slate-700 hover:bg-rose-50 hover:border-rose-300 transition cursor-pointer text-base"
+              className="w-full flex items-center justify-center gap-3 px-4 py-3 bg-white border-2 border-pink-200 rounded-xl font-semibold text-slate-700 hover:bg-pink-50 hover:border-pink-300 transition cursor-pointer text-base"
             >
               <svg width="20" height="20" viewBox="0 0 24 24">
                 <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"/>
@@ -68,7 +68,7 @@ export default function LoginPage() {
           )}
 
           {/* Account tip */}
-          <div className="mt-5 bg-white/70 rounded-xl p-4 border border-rose-100">
+          <div className="mt-5 bg-white/70 rounded-xl p-4 border border-pink-100">
             <div className="flex items-start gap-2.5">
               <span className="text-lg leading-none mt-0.5">👧</span>
               <div>
@@ -89,7 +89,7 @@ export default function LoginPage() {
         <div className="text-center mt-6">
           <p className="text-sm text-slate-500">
             不想登入？沒關係！<br />
-            <a href="/elementary" className="text-rose-500 hover:underline">所有功能都可以免費使用 →</a>
+            <a href="/elementary" className="text-pink-500 hover:underline">所有功能都可以免費使用 →</a>
           </p>
         </div>
       </div>

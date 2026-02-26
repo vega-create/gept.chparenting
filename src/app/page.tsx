@@ -25,7 +25,7 @@ const TOOLS = [
   {
     id: "gept", title: "全民英檢", sub: "GEPT", icon: "📘",
     desc: "初級・中級・中高級完整學習",
-    color: "from-rose-400 to-rose-500", border: "border-rose-200",
+    color: "from-pink-400 to-pink-500", border: "border-pink-200",
     active: true, href: "/elementary",
     features: ["94 單元電子書", "聽說讀寫 + 文法", "7 種遊戲練習", "模擬測驗 + 口說 + 寫作"],
   },
@@ -72,31 +72,31 @@ export default function HomePage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
       {/* Hero */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-rose-400 via-rose-500 to-rose-600 text-white">
-        <div className="absolute inset-0 opacity-10" style={{ backgroundImage: "radial-gradient(circle at 20% 50%, white 1px, transparent 1px)", backgroundSize: "40px 40px" }} />
+      <section className="relative overflow-hidden bg-gradient-to-br from-pink-50 via-rose-50 to-amber-50">
+        <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "radial-gradient(circle at 20% 50%, #f472b6 1px, transparent 1px)", backgroundSize: "40px 40px" }} />
         <div className="max-w-6xl mx-auto px-4 py-16 md:py-24 relative">
           <div className="text-center">
             <div className="text-6xl mb-4 animate-float">📚</div>
-            <h1 className="text-3xl md:text-5xl font-black mb-4 leading-tight">
-              親子多元<span className="text-yellow-300">學習</span>平台
+            <h1 className="text-3xl md:text-5xl font-black mb-4 leading-tight text-slate-800">
+              親子多元<span className="text-pink-400">學習</span>平台
             </h1>
-            <p className="text-lg md:text-xl text-rose-100 max-w-2xl mx-auto mb-3">
+            <p className="text-lg md:text-xl text-slate-600 max-w-2xl mx-auto mb-3">
               減輕家長負擔，讓孩子快樂學習
             </p>
-            <p className="text-base text-rose-100 max-w-xl mx-auto mb-8">
+            <p className="text-base text-slate-500 max-w-xl mx-auto mb-8">
               英檢・日文・數學・桌遊 — 免費互動式學習工具
             </p>
             <div className="flex flex-wrap justify-center gap-3">
-              <a href="/elementary" className="px-8 py-3 bg-white text-rose-600 rounded-xl font-bold text-lg hover:bg-rose-50 transition shadow-lg hover:shadow-xl no-underline">
+              <a href="/elementary" className="px-8 py-3 bg-pink-400 text-white rounded-xl font-bold text-lg hover:bg-pink-500 transition shadow-lg hover:shadow-xl no-underline">
                 📘 開始學英檢
               </a>
-              <a href="/jlpt-n5" className="px-8 py-3 bg-white text-red-600 rounded-xl font-bold text-lg hover:bg-red-50 transition shadow-lg hover:shadow-xl no-underline">
+              <a href="/jlpt-n5" className="px-8 py-3 bg-white text-red-500 border border-red-200 rounded-xl font-bold text-lg hover:bg-red-50 transition shadow-md hover:shadow-lg no-underline">
                 🇯🇵 學日文
               </a>
-              <a href="/board-games" className="px-8 py-3 bg-white text-orange-600 rounded-xl font-bold text-lg hover:bg-orange-50 transition shadow-lg hover:shadow-xl no-underline">
+              <a href="/board-games" className="px-8 py-3 bg-white text-orange-500 border border-orange-200 rounded-xl font-bold text-lg hover:bg-orange-50 transition shadow-md hover:shadow-lg no-underline">
                 🎲 玩桌遊
               </a>
-              <a href="#tools" className="px-8 py-3 bg-white/10 border border-white/30 rounded-xl font-semibold text-lg hover:bg-white/20 transition no-underline">
+              <a href="#tools" className="px-8 py-3 bg-white text-slate-600 border border-slate-200 rounded-xl font-semibold text-lg hover:bg-slate-50 transition shadow-md no-underline">
                 探索所有工具 ↓
               </a>
             </div>
@@ -154,7 +154,7 @@ export default function HomePage() {
           <div className="text-3xl mb-3">💡</div>
           <h3 className="text-xl font-bold text-slate-800 mb-2">學習建議</h3>
           <p className="text-slate-600 max-w-lg mx-auto">
-            每天 15 分鐘，按照 <strong className="text-rose-500">單字 → 文法 → 聽力 → 閱讀 → 測驗</strong> 的順序學習效果最好！
+            每天 15 分鐘，按照 <strong className="text-pink-500">單字 → 文法 → 聽力 → 閱讀 → 測驗</strong> 的順序學習效果最好！
             學完整個單元後到遊戲區綜合練習，讓學習更有趣。
           </p>
         </div>
