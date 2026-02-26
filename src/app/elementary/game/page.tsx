@@ -147,7 +147,7 @@ export default function GamePage() {
         });
         setQuestions(qs); setTotal(10); break;
       }
-      case "spelling": setQuestions(pick(allVocab, 10)); setTotal(10); break;
+      case "spelling": setQuestions(pick(allVocab, 35)); setTotal(35); break;
       case "listening": setQuestions(pick(allListening, 8)); setTotal(8); break;
       case "readaloud": setQuestions(pick(READALOUD, 6)); setTotal(6); break;
       case "reading": {
