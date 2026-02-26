@@ -4,6 +4,8 @@ import { usePathname } from "next/navigation";
 const GEPT_PREFIXES = ["/elementary", "/intermediate", "/upper-intermediate"];
 const JLPT_PREFIXES = ["/jlpt-n5", "/jlpt-n4", "/jlpt-n3", "/jlpt-n2", "/jlpt-n1"];
 const BOARD_GAME_PREFIX = "/board-games";
+const MATH_PREFIX = "/math";
+const FINANCE_PREFIX = "/finance";
 
 export default function MobileBottomNav() {
   const pathname = usePathname();
@@ -12,6 +14,8 @@ export default function MobileBottomNav() {
   const isGeptSection = GEPT_PREFIXES.some(p => pathname.startsWith(p));
   const isJlptSection = JLPT_PREFIXES.some(p => pathname.startsWith(p));
   const isBoardGameSection = pathname.startsWith(BOARD_GAME_PREFIX);
+  const isMathSection = pathname.startsWith(MATH_PREFIX);
+  const isFinanceSection = pathname.startsWith(FINANCE_PREFIX);
 
   if (isGeptSection) {
     return <GeptNav pathname={pathname} />;
@@ -23,6 +27,14 @@ export default function MobileBottomNav() {
 
   if (isBoardGameSection) {
     return <BoardGameNav pathname={pathname} />;
+  }
+
+  if (isMathSection) {
+    return <MathNav pathname={pathname} />;
+  }
+
+  if (isFinanceSection) {
+    return <FinanceNav pathname={pathname} />;
   }
 
   return <PlatformNav pathname={pathname} />;
@@ -102,6 +114,58 @@ function BoardGameNav({ pathname }: { pathname: string }) {
           <a key={item.href} href={item.href}
             className={`flex flex-col items-center gap-0.5 no-underline py-1 px-3 transition ${
               item.match ? "text-orange-500" : "text-slate-400 hover:text-orange-500"
+            }`}>
+            <span className="text-lg">{item.icon}</span>
+            <span className="text-[10px] font-medium">{item.label}</span>
+          </a>
+        ))}
+      </div>
+    </nav>
+  );
+}
+
+function MathNav({ pathname }: { pathname: string }) {
+  const items = [
+    { href: "/", icon: "🏠", label: "首頁", match: false },
+    { href: "/math", icon: "🔢", label: "數學", match: pathname === "/math" },
+    { href: "/math/basic-arithmetic", icon: "➕", label: "運算", match: pathname.includes("/basic-arithmetic") },
+    { href: "/math/geometry", icon: "📐", label: "幾何", match: pathname.includes("/geometry") },
+    { href: "/math/word-problems", icon: "📖", label: "應用", match: pathname.includes("/word-problems") },
+  ];
+
+  return (
+    <nav className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-slate-200 safe-bottom">
+      <div className="flex justify-around items-center h-14">
+        {items.map(item => (
+          <a key={item.href} href={item.href}
+            className={`flex flex-col items-center gap-0.5 no-underline py-1 px-3 transition ${
+              item.match ? "text-amber-600" : "text-slate-400 hover:text-amber-600"
+            }`}>
+            <span className="text-lg">{item.icon}</span>
+            <span className="text-[10px] font-medium">{item.label}</span>
+          </a>
+        ))}
+      </div>
+    </nav>
+  );
+}
+
+function FinanceNav({ pathname }: { pathname: string }) {
+  const items = [
+    { href: "/", icon: "🏠", label: "首頁", match: false },
+    { href: "/finance", icon: "💰", label: "理財", match: pathname === "/finance" },
+    { href: "/finance/money-basics", icon: "📖", label: "觀念", match: pathname.includes("/money-basics") },
+    { href: "/finance/savings-calculator", icon: "🏦", label: "儲蓄", match: pathname.includes("/savings") || pathname.includes("/red-envelope") },
+    { href: "/finance/allowance-budget", icon: "📊", label: "預算", match: pathname.includes("/allowance") || pathname.includes("/expense") },
+  ];
+
+  return (
+    <nav className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-slate-200 safe-bottom">
+      <div className="flex justify-around items-center h-14">
+        {items.map(item => (
+          <a key={item.href} href={item.href}
+            className={`flex flex-col items-center gap-0.5 no-underline py-1 px-3 transition ${
+              item.match ? "text-purple-600" : "text-slate-400 hover:text-purple-600"
             }`}>
             <span className="text-lg">{item.icon}</span>
             <span className="text-[10px] font-medium">{item.label}</span>

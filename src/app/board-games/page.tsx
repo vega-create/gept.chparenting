@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "教育桌遊專區 | 邏輯・程式・記憶・反應・數學・語言訓練",
-  description: "16 款免費線上教育桌遊，訓練邏輯推理、程式設計概念、記憶力、反應力、數學能力與語言力，適合 6-15 歲兒童。",
+  title: "教育桌遊專區 | 邏輯・程式・記憶・反應・數學・語言・棋盤訓練",
+  description: "18 款免費線上教育桌遊，訓練邏輯推理、程式設計概念、記憶力、反應力、數學能力、語言力與策略思考，適合 6-15 歲兒童。",
   alternates: { canonical: "https://learn.chparenting.com/board-games" },
 };
 
@@ -59,6 +59,13 @@ const CATEGORIES = [
       { id: "emoji-puzzle", icon: "😀", name: "表情密碼", desc: "破解表情符號方程式", difficulty: "初級～中級" },
     ],
   },
+  {
+    title: "♟️ 動腦棋盤", color: "from-slate-600 to-slate-800", border: "border-slate-200",
+    games: [
+      { id: "go-game", icon: "⚫", name: "圍棋", desc: "9×9 入門圍棋對弈", difficulty: "初級～高級" },
+      { id: "chinese-checkers", icon: "🔴", name: "跳棋", desc: "經典跳棋策略遊戲", difficulty: "初級～中級" },
+    ],
+  },
 ];
 
 export default function BoardGamesPage() {
@@ -67,7 +74,7 @@ export default function BoardGamesPage() {
       <div className="text-center mb-10">
         <div className="text-5xl mb-3 animate-float">🎲</div>
         <h1 className="text-3xl font-black text-slate-800 mb-2">教育桌遊專區</h1>
-        <p className="text-slate-500">邏輯 · 程式 · 記憶 · 反應 · 數學 · 語言 — 邊玩邊學</p>
+        <p className="text-slate-500">邏輯 · 程式 · 記憶 · 反應 · 數學 · 語言 · 棋盤 — 邊玩邊學</p>
       </div>
 
       <div className="space-y-8">

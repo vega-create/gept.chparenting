@@ -102,6 +102,16 @@ export default function Header() {
             pathname.startsWith("/board-games") ? "text-orange-600 bg-orange-50" : "text-slate-600 hover:bg-orange-50 hover:text-orange-600"
           }`}>🎲 桌遊</a>
 
+          {/* Math */}
+          <a href="/math" className={`px-3 py-2 rounded-lg font-medium transition no-underline ${
+            pathname.startsWith("/math") ? "text-amber-600 bg-amber-50" : "text-slate-600 hover:bg-amber-50 hover:text-amber-600"
+          }`}>🔢 數學</a>
+
+          {/* Finance */}
+          <a href="/finance" className={`px-3 py-2 rounded-lg font-medium transition no-underline ${
+            pathname.startsWith("/finance") ? "text-purple-600 bg-purple-50" : "text-slate-600 hover:bg-purple-50 hover:text-purple-600"
+          }`}>💰 理財</a>
+
           <a href="/how-to-use" className={`px-3 py-2 rounded-lg font-medium transition no-underline ${
             pathname === "/how-to-use" ? "text-blue-600 bg-blue-50" : "text-slate-600 hover:bg-blue-50 hover:text-blue-600"
           }`}>使用說明</a>

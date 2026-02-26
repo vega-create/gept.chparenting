@@ -30,6 +30,17 @@ const BOARD_GAMES = [
   "math-rush", "speed-sort",
   "word-chain", "word-search",
   "maze-runner", "emoji-puzzle",
+  "go-game", "chinese-checkers",
+];
+
+const MATH_TOPICS = [
+  "basic-arithmetic", "fractions", "decimals", "percentages",
+  "geometry", "intro-algebra", "word-problems", "time-measurement",
+];
+
+const FINANCE_MODULES = [
+  "money-basics", "needs-vs-wants", "savings-calculator",
+  "allowance-budget", "red-envelope", "expense-tracker",
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -65,5 +76,23 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     // Typing game
     { url: `${BASE}/typing-game`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.7 },
+
+    // Math section
+    { url: `${BASE}/math`, lastModified: new Date(), changeFrequency: "weekly" as const, priority: 0.8 },
+    ...MATH_TOPICS.map(id => ({
+      url: `${BASE}/math/${id}`,
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+    })),
+
+    // Finance section
+    { url: `${BASE}/finance`, lastModified: new Date(), changeFrequency: "weekly" as const, priority: 0.8 },
+    ...FINANCE_MODULES.map(id => ({
+      url: `${BASE}/finance/${id}`,
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+    })),
   ];
 }

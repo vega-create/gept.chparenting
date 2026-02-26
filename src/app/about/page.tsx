@@ -44,8 +44,8 @@ export default function AboutPage() {
         <p className="text-slate-600 leading-7">
           目前已上線<strong>全民英檢</strong>（初級・中級・中高級，共 94 單元）、
           <strong>JLPT 日文檢定</strong>（N5～N1 全 5 級，共 100 單元）、
-          <strong>教育桌遊</strong>（16 款邏輯・程式・記憶・數學遊戲）和<strong>打字練習</strong>。
-          數學練習與兒童理財工具正在開發中 🚀
+          <strong>教育桌遊</strong>（18 款邏輯・程式・記憶・數學・圍棋・跳棋遊戲）、<strong>打字練習</strong>、
+          <strong>數學練習</strong>（8 大主題）和<strong>兒童理財</strong>（6 個互動模組）🚀
         </p>
       </div>
 
@@ -73,7 +73,7 @@ export default function AboutPage() {
             <span className="text-3xl">🎲</span>
             <div>
               <div className="font-bold text-slate-800">教育桌遊</div>
-              <div className="text-sm text-slate-500">16 款遊戲 · 邏輯推理 · 程式概念 · 記憶力 · 數學衝刺 · 語言探索</div>
+              <div className="text-sm text-slate-500">18 款遊戲 · 邏輯推理 · 程式概念 · 記憶力 · 數學衝刺 · 語言探索 · 圍棋 · 跳棋</div>
             </div>
             <span className="ml-auto text-orange-400">→</span>
           </a>
@@ -86,17 +86,23 @@ export default function AboutPage() {
             <span className="ml-auto text-emerald-400">→</span>
           </a>
         </div>
-        <div className="mt-4 grid grid-cols-2 gap-3">
-          {[
-            { icon: "🔢", label: "數學練習", status: "開發中" },
-            { icon: "💰", label: "兒童理財", status: "開發中" },
-          ].map((t) => (
-            <div key={t.label} className="p-3 rounded-xl bg-slate-50 border border-slate-100 text-center opacity-60">
-              <div className="text-2xl mb-1">{t.icon}</div>
-              <div className="text-sm font-medium text-slate-600">{t.label}</div>
-              <div className="text-xs text-slate-400">{t.status}</div>
+        <div className="mt-3 space-y-3">
+          <a href="/math" className="flex items-center gap-4 p-4 rounded-xl bg-amber-50 border border-amber-100 hover:shadow-md transition no-underline">
+            <span className="text-3xl">🔢</span>
+            <div>
+              <div className="font-bold text-slate-800">數學練習</div>
+              <div className="text-sm text-slate-500">8 大主題 · 觀念教學 · 互動練習 · 限時挑戰 · 國小到國中</div>
             </div>
-          ))}
+            <span className="ml-auto text-amber-400">→</span>
+          </a>
+          <a href="/finance" className="flex items-center gap-4 p-4 rounded-xl bg-purple-50 border border-purple-100 hover:shadow-md transition no-underline">
+            <span className="text-3xl">💰</span>
+            <div>
+              <div className="font-bold text-slate-800">兒童理財</div>
+              <div className="text-sm text-slate-500">6 個互動模組 · 認識金錢 · 儲蓄計算 · 零用錢分配 · 紅包理財 · 記帳</div>
+            </div>
+            <span className="ml-auto text-purple-400">→</span>
+          </a>
         </div>
       </div>
 
