@@ -61,7 +61,7 @@ function PlatformNav({ pathname }: { pathname: string }) {
         {items.map(item => (
           <a key={item.href} href={item.href}
             className={`flex flex-col items-center gap-0.5 no-underline py-1 px-3 transition ${
-              item.match ? "text-pink-500" : "text-slate-400 hover:text-pink-500"
+              item.match ? "text-rose-400" : "text-slate-400 hover:text-rose-400"
             }`}>
             <span className="text-lg">{item.icon}</span>
             <span className="text-[10px] font-medium">{item.label}</span>
@@ -196,7 +196,7 @@ function DashboardNav({ pathname }: { pathname: string }) {
         {items.map(item => (
           <a key={item.href} href={item.href}
             className={`flex flex-col items-center gap-0.5 no-underline py-1 px-3 transition ${
-              item.match ? "text-pink-500" : "text-slate-400 hover:text-pink-500"
+              item.match ? "text-rose-400" : "text-slate-400 hover:text-rose-400"
             }`}>
             <span className="text-lg">{item.icon}</span>
             <span className="text-[10px] font-medium">{item.label}</span>
@@ -227,7 +227,7 @@ function GeptNav({ pathname }: { pathname: string }) {
         {items.map(item => (
           <a key={item.href} href={item.href}
             className={`flex flex-col items-center gap-0.5 no-underline py-1 px-3 transition ${
-              item.match ? "text-pink-500" : "text-slate-400 hover:text-pink-500"
+              item.match ? "text-rose-400" : "text-slate-400 hover:text-rose-400"
             }`}>
             <span className="text-lg">{item.icon}</span>
             <span className="text-[10px] font-medium">{item.label}</span>

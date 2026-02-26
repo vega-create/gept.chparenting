@@ -2,7 +2,7 @@
 import type { LearningActivity } from "@/lib/tracking";
 
 const SUBJECT_BADGES: Record<string, { label: string; color: string; icon: string }> = {
-  "gept": { label: "英檢", color: "bg-pink-100 text-pink-700", icon: "📘" },
+  "gept": { label: "英檢", color: "bg-rose-100 text-rose-700", icon: "📘" },
   "jlpt": { label: "日文", color: "bg-red-100 text-red-700", icon: "🇯🇵" },
   "board-game": { label: "桌遊", color: "bg-orange-100 text-orange-700", icon: "🎲" },
   "math": { label: "數學", color: "bg-amber-100 text-amber-700", icon: "🔢" },

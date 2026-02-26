@@ -105,7 +105,7 @@ export default function Breadcrumb() {
       <nav aria-label="breadcrumb" className="max-w-6xl mx-auto px-4 py-3">
         <ol className="flex items-center gap-1 text-sm text-slate-400 flex-wrap">
           <li>
-            <a href="/" className="hover:text-pink-500 transition no-underline">首頁</a>
+            <a href="/" className="hover:text-rose-400 transition no-underline">首頁</a>
           </li>
           {crumbs.map((c, i) => (
             <li key={c.href} className="flex items-center gap-1">
@@ -113,7 +113,7 @@ export default function Breadcrumb() {
               {i === crumbs.length - 1 ? (
                 <span className="text-slate-600 font-medium">{c.label}</span>
               ) : (
-                <a href={c.href} className="hover:text-pink-500 transition no-underline">{c.label}</a>
+                <a href={c.href} className="hover:text-rose-400 transition no-underline">{c.label}</a>
               )}
             </li>
           ))}
