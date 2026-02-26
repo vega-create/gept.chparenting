@@ -37,10 +37,19 @@ export default function AboutPage() {
 
         <div className="border-l-3 border-rose-300 pl-5 mb-5">
           <p className="text-slate-600 leading-8 mb-4">
-            一開始，只是想幫自己的孩子找一個好用的英檢練習工具。
+            身為兩個孩子的媽媽，平常身兼數職外，對小孩的教育一直很關心。
           </p>
           <p className="text-slate-600 leading-8 mb-4">
-            市面上的資源不是要收費，就是廣告太多、介面不友善。
+            平常已經有線上與老師的課程學習，但深知語言需要多練習的我。
+          </p>
+          <p className="text-slate-600 leading-8 mb-4">
+            想要幫自己的孩子找一個好用的英檢練習工具。
+          </p>
+          <p className="text-slate-600 leading-8 mb-4">
+            內容可以是包含：聽、說、讀、寫。
+          </p>
+          <p className="text-slate-600 leading-8 mb-4">
+            市面上的資源很多與我想要的有落差，有的介面也太複雜。
             身為一個有網站開發能力的媽媽，我想：<strong>「不如自己做一個吧。」</strong>
           </p>
           <p className="text-slate-600 leading-8 mb-4">
@@ -50,6 +59,9 @@ export default function AboutPage() {
           <p className="text-slate-700 leading-8 font-medium">
             如果這些工具能幫到更多的孩子，讓他們在家也能快樂地學習，那就太好了。
             所以，我決定讓這個平台<strong className="text-rose-500">完全免費</strong>。
+          </p>
+          <p className="text-slate-700 leading-8 font-medium">
+            不管大人小孩，只要有興趣都可以一起學習。
           </p>
         </div>
       </div>
