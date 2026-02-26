@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "關於我們 | 親子多元學習平台",
-  description: "親子多元學習平台由智慧媽咪國際有限公司製作，提供全民英檢、日文、數學等免費學習工具，減輕家長負擔，讓孩子快樂學習。",
+  description: "一位媽媽因為想幫自己的孩子準備英檢，開始做了這個免費學習平台。希望每個孩子都能快樂學習，不用擔心補習費。",
   alternates: { canonical: "https://learn.chparenting.com/about" },
 };
 
@@ -24,36 +24,57 @@ export default function AboutPage() {
     <div className="max-w-3xl mx-auto px-4 py-12">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
+      {/* ─── Header ─── */}
       <div className="text-center mb-10">
-        <div className="text-5xl mb-3">💡</div>
-        <h1 className="text-3xl font-black text-slate-800 mb-2">關於我們</h1>
-        <p className="text-slate-500">減輕家長負擔，讓孩子快樂學習</p>
+        <div className="text-5xl mb-3">🌸</div>
+        <h1 className="text-3xl font-black text-slate-800 mb-2">關於這個平台</h1>
+        <p className="text-rose-400 font-medium">一位媽媽的小小心願</p>
       </div>
 
-      {/* Platform Vision */}
-      <div className="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm mb-6">
-        <h2 className="text-xl font-bold text-slate-800 mb-4">🌟 平台願景</h2>
-        <p className="text-slate-600 leading-7 mb-4">
-          <strong>親子多元學習平台</strong>是一個完全免費的線上學習資源平台，
-          讓家長不需要花補習費，也能在家陪孩子有效學習。
-        </p>
-        <p className="text-slate-600 leading-7 mb-4">
-          想要製作的初心來自於想要讓孩子有更多練習英檢的機會，
-          才開始著手籌劃網站，以寓教於樂的觀點整合網站。
-          我們相信：好的學習工具不應該只有付得起補習費的家庭才能享有。
-          透過互動式的遊戲化學習，每個孩子都能用自己的節奏快樂成長。
-        </p>
-        <p className="text-slate-600 leading-7">
-          目前已上線<strong>全民英檢</strong>（初級・中級・中高級，共 94 單元）、
-          <strong>JLPT 日文檢定</strong>（N5～N1 全 5 級，共 100 單元）、
-          <strong>教育桌遊</strong>（18 款邏輯・程式・記憶・數學・圍棋・跳棋遊戲）、<strong>打字練習</strong>、
-          <strong>數學練習</strong>（8 大主題）和<strong>兒童理財</strong>（6 個互動模組）🚀
-        </p>
+      {/* ─── Origin Story ─── */}
+      <div className="bg-gradient-to-b from-rose-50/60 to-orange-50/40 rounded-2xl p-8 border border-rose-200 shadow-sm mb-6">
+        <h2 className="text-xl font-bold text-slate-800 mb-5">💕 為什麼做這個網站？</h2>
+
+        <div className="border-l-3 border-rose-300 pl-5 mb-5">
+          <p className="text-slate-600 leading-8 mb-4">
+            一開始，只是想幫自己的孩子找一個好用的英檢練習工具。
+          </p>
+          <p className="text-slate-600 leading-8 mb-4">
+            市面上的資源不是要收費，就是廣告太多、介面不友善。
+            身為一個有網站開發能力的媽媽，我想：<strong>「不如自己做一個吧。」</strong>
+          </p>
+          <p className="text-slate-600 leading-8 mb-4">
+            做著做著，從英檢變成了日檢，又加了桌遊、數學、打字、理財⋯⋯
+            每多做一個功能，就會想到：<em>「其他家庭的孩子可能也需要吧？」</em>
+          </p>
+          <p className="text-slate-700 leading-8 font-medium">
+            如果這些工具能幫到更多的孩子，讓他們在家也能快樂地學習，那就太好了。
+            所以，我決定讓這個平台<strong className="text-rose-500">完全免費</strong>。
+          </p>
+        </div>
       </div>
 
-      {/* Current Tools */}
+      {/* ─── Beliefs ─── */}
       <div className="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm mb-6">
-        <h2 className="text-xl font-bold text-slate-800 mb-4">🛠️ 目前提供的工具</h2>
+        <h2 className="text-xl font-bold text-slate-800 mb-5">🌟 我們相信</h2>
+        <div className="space-y-4">
+          {[
+            { icon: "🌈", text: "好的學習資源，不該只有付得起補習費的家庭才能擁有。" },
+            { icon: "🧒", text: "每個孩子都值得用自己的步調，快樂地學習和成長。" },
+            { icon: "🎮", text: "學習不該是壓力，而是一段充滿好奇心的探索旅程。" },
+            { icon: "👨‍👩‍👧‍👦", text: "家長陪伴孩子學習的時光，是最珍貴的親子時刻。" },
+          ].map((item, i) => (
+            <div key={i} className="flex items-start gap-3 p-4 rounded-xl bg-slate-50">
+              <span className="text-xl mt-0.5">{item.icon}</span>
+              <p className="text-slate-600 leading-7">{item.text}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* ─── Current Tools ─── */}
+      <div className="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm mb-6">
+        <h2 className="text-xl font-bold text-slate-800 mb-5">📚 目前提供的學習工具</h2>
         <div className="space-y-3">
           <a href="/elementary" className="flex items-center gap-4 p-4 rounded-xl bg-blue-50 border border-blue-100 hover:shadow-md transition no-underline">
             <span className="text-3xl">📘</span>
@@ -67,7 +88,7 @@ export default function AboutPage() {
             <span className="text-3xl">🇯🇵</span>
             <div>
               <div className="font-bold text-slate-800">JLPT 日文檢定</div>
-              <div className="text-sm text-slate-500">N5～N1 全 5 級 · 100 單元 · 五十音 · 單字文法 · 聽說讀寫 · 遊戲 · 模擬測驗</div>
+              <div className="text-sm text-slate-500">N5～N1 全 5 級 · 100 單元 · 五十音到進階 · 聽說讀寫 · 模擬測驗</div>
             </div>
             <span className="ml-auto text-red-400">→</span>
           </a>
@@ -75,94 +96,96 @@ export default function AboutPage() {
             <span className="text-3xl">🎲</span>
             <div>
               <div className="font-bold text-slate-800">教育桌遊</div>
-              <div className="text-sm text-slate-500">18 款遊戲 · 邏輯推理 · 程式概念 · 記憶力 · 數學衝刺 · 語言探索 · 圍棋 · 跳棋</div>
+              <div className="text-sm text-slate-500">18 款遊戲 · 邏輯推理 · 程式概念 · 記憶力 · 數學 · 圍棋 · 跳棋</div>
             </div>
             <span className="ml-auto text-orange-400">→</span>
           </a>
-          <a href="/typing-game" className="flex items-center gap-4 p-4 rounded-xl bg-emerald-50 border border-emerald-100 hover:shadow-md transition no-underline">
-            <span className="text-3xl">⌨️</span>
-            <div>
-              <div className="font-bold text-slate-800">打字練習</div>
-              <div className="text-sm text-slate-500">中英雙語打字訓練 · 落下文字 · 限時挑戰 · 速度測試</div>
-            </div>
-            <span className="ml-auto text-emerald-400">→</span>
-          </a>
-        </div>
-        <div className="mt-3 space-y-3">
-          <a href="/math" className="flex items-center gap-4 p-4 rounded-xl bg-amber-50 border border-amber-100 hover:shadow-md transition no-underline">
-            <span className="text-3xl">🔢</span>
-            <div>
-              <div className="font-bold text-slate-800">數學練習</div>
-              <div className="text-sm text-slate-500">8 大主題 · 觀念教學 · 互動練習 · 限時挑戰 · 國小到國中</div>
-            </div>
-            <span className="ml-auto text-amber-400">→</span>
-          </a>
-          <a href="/finance" className="flex items-center gap-4 p-4 rounded-xl bg-purple-50 border border-purple-100 hover:shadow-md transition no-underline">
-            <span className="text-3xl">💰</span>
-            <div>
-              <div className="font-bold text-slate-800">兒童理財</div>
-              <div className="text-sm text-slate-500">6 個互動模組 · 認識金錢 · 儲蓄計算 · 零用錢分配 · 紅包理財 · 記帳</div>
-            </div>
-            <span className="ml-auto text-purple-400">→</span>
-          </a>
-        </div>
-      </div>
-
-      {/* Company Info */}
-      <div className="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm mb-6">
-        <h2 className="text-xl font-bold text-slate-800 mb-4">🏢 智慧媽咪國際有限公司</h2>
-        <p className="text-slate-600 leading-7 mb-4">
-          親子多元學習平台由<strong>智慧媽咪國際有限公司（Mommy Wisdom International LTD.）</strong>製作與維護。
-          我們是一家專注於數位行銷與教育科技的公司，相信科技可以讓學習變得更容易。
-        </p>
-        <div className="bg-slate-50 rounded-xl p-5 border border-slate-100">
-          <h3 className="font-bold text-slate-700 mb-3 text-sm">我們的服務</h3>
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 text-sm text-slate-600">
-            <div className="flex items-center gap-1.5"><span className="text-blue-400">✓</span> SEO 優化</div>
-            <div className="flex items-center gap-1.5"><span className="text-blue-400">✓</span> 數位廣告</div>
-            <div className="flex items-center gap-1.5"><span className="text-blue-400">✓</span> 網站開發</div>
-            <div className="flex items-center gap-1.5"><span className="text-blue-400">✓</span> 企業培訓</div>
-            <div className="flex items-center gap-1.5"><span className="text-blue-400">✓</span> AI 自動化</div>
-            <div className="flex items-center gap-1.5"><span className="text-blue-400">✓</span> 教育科技</div>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            <a href="/typing-game" className="flex items-center gap-3 p-3 rounded-xl bg-emerald-50 border border-emerald-100 hover:shadow-md transition no-underline">
+              <span className="text-2xl">⌨️</span>
+              <div className="font-bold text-sm text-slate-800">打字練習</div>
+            </a>
+            <a href="/math" className="flex items-center gap-3 p-3 rounded-xl bg-amber-50 border border-amber-100 hover:shadow-md transition no-underline">
+              <span className="text-2xl">🔢</span>
+              <div className="font-bold text-sm text-slate-800">數學練習</div>
+            </a>
+            <a href="/finance" className="flex items-center gap-3 p-3 rounded-xl bg-purple-50 border border-purple-100 hover:shadow-md transition no-underline">
+              <span className="text-2xl">💰</span>
+              <div className="font-bold text-sm text-slate-800">兒童理財</div>
+            </a>
           </div>
         </div>
       </div>
 
-      {/* Resources */}
+      {/* ─── Tips ─── */}
       <div className="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm mb-6">
-        <h2 className="text-xl font-bold text-slate-800 mb-4">🌐 更多資源</h2>
-        <div className="space-y-3">
+        <h2 className="text-xl font-bold text-slate-800 mb-4">💡 使用小提示</h2>
+        <div className="space-y-3 text-sm">
+          <div className="flex items-start gap-3 p-4 rounded-xl bg-rose-50 border border-rose-100">
+            <span className="text-lg">👧</span>
+            <div>
+              <p className="font-medium text-slate-700 mb-1">每位小朋友請用自己的 Google 帳號登入</p>
+              <p className="text-slate-500">這樣每個孩子都有專屬的學習紀錄、進度追蹤和連續學習天數</p>
+            </div>
+          </div>
+          <div className="flex items-start gap-3 p-4 rounded-xl bg-amber-50 border border-amber-100">
+            <span className="text-lg">📊</span>
+            <div>
+              <p className="font-medium text-slate-700 mb-1">登入後可以追蹤學習進度</p>
+              <p className="text-slate-500">設定每週學習計畫、查看歷史紀錄、累積連續學習天數</p>
+            </div>
+          </div>
+          <div className="flex items-start gap-3 p-4 rounded-xl bg-emerald-50 border border-emerald-100">
+            <span className="text-lg">🎉</span>
+            <div>
+              <p className="font-medium text-slate-700 mb-1">不登入也能使用所有功能</p>
+              <p className="text-slate-500">登入只是多了進度追蹤，所有學習工具都是完全免費、隨時可用</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* ─── Company ─── */}
+      <div className="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm mb-6">
+        <h2 className="text-xl font-bold text-slate-800 mb-4">🏠 關於我們</h2>
+        <p className="text-slate-600 leading-7 mb-4">
+          這個平台由<strong>智慧媽咪國際有限公司</strong>製作與維護。
+          我們是一個小小的團隊，相信科技可以讓學習變得更有趣、更容易取得。
+        </p>
+        <div className="flex flex-col sm:flex-row gap-3">
           <a href="https://aimommywisdom.com" target="_blank" rel="noopener noreferrer"
-            className="flex items-center gap-3 p-4 rounded-xl bg-gradient-to-r from-pink-50 to-rose-50 border border-pink-200 hover:shadow-md transition no-underline">
+            className="flex items-center gap-3 p-4 rounded-xl bg-gradient-to-r from-rose-50 to-orange-50 border border-rose-200 hover:shadow-md transition no-underline flex-1">
             <span className="text-2xl">👶</span>
             <div>
-              <div className="font-bold text-slate-800">AI Mommy Wisdom</div>
-              <div className="text-sm text-slate-500">智慧媽咪國際有限公司官網</div>
+              <div className="font-bold text-slate-800 text-sm">AI Mommy Wisdom</div>
+              <div className="text-xs text-slate-500">智慧媽咪官網</div>
             </div>
-            <span className="ml-auto text-pink-400">↗</span>
+            <span className="ml-auto text-rose-400">↗</span>
           </a>
           <a href="https://chparenting.com" target="_blank" rel="noopener noreferrer"
-            className="flex items-center gap-3 p-4 rounded-xl bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 hover:shadow-md transition no-underline">
+            className="flex items-center gap-3 p-4 rounded-xl bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 hover:shadow-md transition no-underline flex-1">
             <span className="text-2xl">👨‍👩‍👧</span>
             <div>
-              <div className="font-bold text-slate-800">CH Parenting</div>
-              <div className="text-sm text-slate-500">親子教養與家庭生活分享</div>
+              <div className="font-bold text-slate-800 text-sm">CH Parenting</div>
+              <div className="text-xs text-slate-500">親子教養分享</div>
             </div>
             <span className="ml-auto text-blue-400">↗</span>
           </a>
         </div>
       </div>
 
-      {/* CTA */}
-      <div className="bg-gradient-to-r from-amber-50 to-orange-50 rounded-2xl p-8 border border-amber-200 text-center">
-        <div className="text-2xl mb-2">💌</div>
-        <h3 className="font-bold text-slate-800 mb-2">有想法想告訴我們？</h3>
-        <p className="text-sm text-slate-600 mb-4">
-          不管是功能建議、錯誤回報，還是想說聲加油，都歡迎聯繫我們！<br />
-          你的回饋是讓這個平台變得更好的最大動力 ❤️
+      {/* ─── CTA ─── */}
+      <div className="bg-gradient-to-r from-rose-50 to-orange-50 rounded-2xl p-8 border border-rose-200 text-center">
+        <div className="text-3xl mb-3">💕</div>
+        <p className="text-slate-700 leading-8 mb-4">
+          如果這個網站對你的孩子有一點點幫助，<br />
+          那就是我做這一切最開心的事了。
+        </p>
+        <p className="text-sm text-slate-500 mb-5">
+          有任何建議、回饋，或只是想說聲加油，都歡迎聯繫我們 ❤️
         </p>
         <a href="https://aimommywisdom.com" target="_blank" rel="noopener noreferrer"
-          className="inline-block px-6 py-2.5 bg-amber-500 text-white rounded-xl font-semibold text-sm hover:bg-amber-600 transition no-underline">
+          className="inline-block px-6 py-2.5 bg-rose-400 text-white rounded-xl font-semibold text-sm hover:bg-rose-500 transition no-underline">
           前往官網聯繫 →
         </a>
       </div>

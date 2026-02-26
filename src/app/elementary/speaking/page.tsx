@@ -2,6 +2,7 @@
 import { UNITS } from "@/data/elementary";
 import { useState, useEffect, useCallback, useRef } from "react";
 import { playCorrect, playWrong, playPerfect, playVictory } from "@/lib/sounds";
+import { compareTextEn, scoreSpeechResult } from "@/lib/speech-scoring";
 
 const speak = (text: string, rate = 0.85, onEnd?: () => void) => {
   if (typeof window === "undefined" || !("speechSynthesis" in window)) return;
@@ -78,18 +79,6 @@ export default function SpeakingPage() {
     }
   };
 
-  const compareText = (target: string, spoken: string): { pct: number; matched: number[] } => {
-    const targetWords = target.toLowerCase().replace(/[^\w\s]/g, "").split(/\s+/).filter(Boolean);
-    const spokenWords = spoken.toLowerCase().replace(/[^\w\s]/g, "").split(/\s+/).filter(Boolean);
-    const matched: number[] = [];
-    targetWords.forEach((tw, i) => {
-      if (spokenWords.some(sw => sw === tw || (tw.length > 3 && (sw.includes(tw) || tw.includes(sw))))) {
-        matched.push(i);
-      }
-    });
-    return { pct: Math.round((matched.length / Math.max(targetWords.length, 1)) * 100), matched };
-  };
-
   const startRecording = (targetText: string) => {
     const SR = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
     if (!SR) return;
@@ -107,17 +96,15 @@ export default function SpeakingPage() {
     recog.continuous = false;
 
     recog.onresult = (e: any) => {
-      let bestPct = 0;
-      let bestTranscript = "";
-      let bestMatched: number[] = [];
-
+      const alts: { transcript: string; confidence: number }[] = [];
       for (let i = 0; i < e.results[0].length; i++) {
-        const transcript = e.results[0][i].transcript;
-        const { pct, matched } = compareText(targetText, transcript);
-        if (pct > bestPct) {
-          bestPct = pct; bestTranscript = transcript; bestMatched = matched;
-        }
+        alts.push({
+          transcript: e.results[0][i].transcript,
+          confidence: e.results[0][i].confidence ?? 0,
+        });
       }
+      const { pct: bestPct, transcript: bestTranscript, matched: bestMatched } =
+        scoreSpeechResult(alts, targetText, compareTextEn);
 
       setResult({ transcript: bestTranscript, pct: bestPct, matched: bestMatched });
       setRecording(false);

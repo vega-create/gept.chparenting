@@ -1,7 +1,8 @@
 "use client";
 import { N5_UNITS } from "@/data/jlpt-n5";
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import { playCorrect, playWrong, playPerfect, playVictory } from "@/lib/sounds";
+import { trackActivity } from "@/lib/tracking";
 
 const speak = (text: string, rate = 0.85) => {
   if (typeof window === "undefined" || !("speechSynthesis" in window)) return;
@@ -87,6 +88,23 @@ export default function MockTestPage() {
 
     return { correct, total, details };
   }, [listenQs, vocabQs, readingData, answers]);
+
+  // Track mock test completion
+  const mockTracked = useRef(false);
+  useEffect(() => {
+    if (phase === "result" && !mockTracked.current) {
+      mockTracked.current = true;
+      const { correct, total } = calcScore();
+      const pct = total > 0 ? correct / total : 0;
+      trackActivity({
+        subject: "jlpt", activityType: "mock-test", activityId: "jlpt-n5-mock",
+        activityName: "JLPT N5 模擬測驗", score: correct, maxScore: total,
+        stars: pct >= 0.9 ? 3 : pct >= 0.6 ? 2 : pct >= 0.3 ? 1 : 0,
+        durationSeconds: timer,
+      }).catch(() => {});
+    }
+    if (phase === "intro") mockTracked.current = false;
+  }, [phase]); // eslint-disable-line react-hooks/exhaustive-deps
 
   // Section answer counts
   const lDone = listenQs.filter((_, i) => answers[`l${i}`] !== undefined).length;

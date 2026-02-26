@@ -2,6 +2,7 @@
 import { UI_UNITS as UNITS } from "@/data/upper-intermediate";
 import { useState, useEffect, useCallback, useRef } from "react";
 import { playCorrect, playWrong, playPerfect, playVictory } from "@/lib/sounds";
+import { trackActivity } from "@/lib/tracking";
 
 const speak = (text: string, rate = 0.85) => {
   if (typeof window === "undefined" || !("speechSynthesis" in window)) return;
@@ -63,6 +64,23 @@ export default function MockTestPage() {
     readingData.forEach((rd: any, pi: number) => { rd.questions.forEach((q: any, qi: number) => { total++; const ok = answers[`r${pi}_${qi}`] === q.ans; if (ok) correct++; details.push({ section: "Reading Comprehension", passageIdx: pi, idx: qi, question: q.q, userAns: answers[`r${pi}_${qi}`] ?? -1, correctAns: q.ans, opts: q.opts, correct: ok, passage: rd.passage }); }); });
     return { correct, total, details };
   }, [listenQs, vocabQs, readingData, answers]);
+
+  // Track mock test completion
+  const mockTracked = useRef(false);
+  useEffect(() => {
+    if (phase === "result" && !mockTracked.current) {
+      mockTracked.current = true;
+      const { correct, total } = calcScore();
+      const pct = total > 0 ? correct / total : 0;
+      trackActivity({
+        subject: "gept", activityType: "mock-test", activityId: "gept-upper-intermediate-mock",
+        activityName: "GEPT 中高級模擬測驗", score: correct, maxScore: total,
+        stars: pct >= 0.9 ? 3 : pct >= 0.72 ? 2 : pct >= 0.4 ? 1 : 0,
+        durationSeconds: timer,
+      }).catch(() => {});
+    }
+    if (phase === "intro") mockTracked.current = false;
+  }, [phase]); // eslint-disable-line react-hooks/exhaustive-deps
 
   // ─── INTRO ───
   if (phase === "intro") return (
