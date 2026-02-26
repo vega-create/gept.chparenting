@@ -42,8 +42,10 @@ export default function AboutPage() {
           透過互動式的遊戲化學習，每個孩子都能用自己的節奏快樂成長。
         </p>
         <p className="text-slate-600 leading-7">
-          目前已上線<strong>全民英檢</strong>學習工具（初級・中級・中高級）及<strong>JLPT 日文檢定</strong>（N5 入門），
-          更多級別及數學、教育桌遊等學習工具正在開發中 🚀
+          目前已上線<strong>全民英檢</strong>（初級・中級・中高級，共 94 單元）、
+          <strong>JLPT 日文檢定</strong>（N5～N1 全 5 級，共 100 單元）、
+          <strong>教育桌遊</strong>（16 款邏輯・程式・記憶・數學遊戲）和<strong>打字練習</strong>。
+          數學練習與兒童理財工具正在開發中 🚀
         </p>
       </div>
 
@@ -63,9 +65,17 @@ export default function AboutPage() {
             <span className="text-3xl">🇯🇵</span>
             <div>
               <div className="font-bold text-slate-800">JLPT 日文檢定</div>
-              <div className="text-sm text-slate-500">N5 入門 · 五十音 · 單字文法 · 聽力閱讀 · 遊戲 · 模擬測驗</div>
+              <div className="text-sm text-slate-500">N5～N1 全 5 級 · 100 單元 · 五十音 · 單字文法 · 聽說讀寫 · 遊戲 · 模擬測驗</div>
             </div>
             <span className="ml-auto text-red-400">→</span>
+          </a>
+          <a href="/board-games" className="flex items-center gap-4 p-4 rounded-xl bg-orange-50 border border-orange-100 hover:shadow-md transition no-underline">
+            <span className="text-3xl">🎲</span>
+            <div>
+              <div className="font-bold text-slate-800">教育桌遊</div>
+              <div className="text-sm text-slate-500">16 款遊戲 · 邏輯推理 · 程式概念 · 記憶力 · 數學衝刺 · 語言探索</div>
+            </div>
+            <span className="ml-auto text-orange-400">→</span>
           </a>
           <a href="/typing-game" className="flex items-center gap-4 p-4 rounded-xl bg-emerald-50 border border-emerald-100 hover:shadow-md transition no-underline">
             <span className="text-3xl">⌨️</span>
@@ -76,10 +86,9 @@ export default function AboutPage() {
             <span className="ml-auto text-emerald-400">→</span>
           </a>
         </div>
-        <div className="mt-4 grid grid-cols-2 sm:grid-cols-3 gap-3">
+        <div className="mt-4 grid grid-cols-2 gap-3">
           {[
             { icon: "🔢", label: "數學練習", status: "開發中" },
-            { icon: "🎲", label: "教育桌遊", status: "開發中" },
             { icon: "💰", label: "兒童理財", status: "開發中" },
           ].map((t) => (
             <div key={t.label} className="p-3 rounded-xl bg-slate-50 border border-slate-100 text-center opacity-60">
